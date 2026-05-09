@@ -21,7 +21,6 @@
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;}
-
   #splash{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999;transition:opacity 0.5s;}
   #splash.hide{opacity:0;pointer-events:none;}
   .splash-logo{font-size:64px;animation:pulse 1.5s infinite;}
@@ -31,7 +30,6 @@
   .splash-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:99px;animation:load 2.5s forwards;}
   @keyframes load{from{width:0}to{width:100%}}
   @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
-
   #terms{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:none;align-items:center;justify-content:center;z-index:998;padding:20px;}
   #terms.show{display:flex;}
   .terms-box{background:var(--surface);border-radius:var(--radius);padding:32px;max-width:480px;width:100%;border:1px solid var(--accent);}
@@ -42,7 +40,6 @@
   .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;}
   .btn-primary:hover{opacity:0.9;transform:scale(1.03);}
   .btn-primary:disabled{opacity:0.4;cursor:not-allowed;transform:none;}
-
   #login{position:fixed;inset:0;background:var(--bg);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:997;padding:20px;}
   #login.show{display:flex;}
   .login-card{background:var(--surface);border-radius:var(--radius);padding:40px;max-width:420px;width:100%;border:1px solid rgba(99,102,241,0.3);text-align:center;}
@@ -52,56 +49,46 @@
   .input-group label{font-size:0.85rem;color:var(--muted);margin-bottom:6px;display:block;}
   .input-group input,.input-group select{width:100%;padding:12px 16px;background:var(--card);border:1px solid rgba(99,102,241,0.3);border-radius:10px;color:var(--text);font-size:1rem;outline:none;transition:border 0.2s;}
   .input-group input:focus,.input-group select:focus{border-color:var(--accent);}
-
   #app{display:none;flex-direction:column;min-height:100vh;}
   #app.show{display:flex;}
-
   header{background:var(--surface);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(99,102,241,0.2);position:sticky;top:0;z-index:100;}
   .logo{font-size:1.3rem;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
   .user-info{display:flex;align-items:center;gap:10px;}
   .avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;}
   .xp-badge{background:var(--card);border-radius:99px;padding:4px 12px;font-size:0.8rem;color:var(--gold);font-weight:700;}
-
   .xp-bar-wrap{background:var(--surface);padding:10px 20px;border-bottom:1px solid rgba(99,102,241,0.1);}
   .xp-info{display:flex;justify-content:space-between;font-size:0.8rem;color:var(--muted);margin-bottom:6px;}
   .xp-bar{height:8px;background:var(--card);border-radius:99px;overflow:hidden;}
   .xp-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:99px;transition:width 0.5s ease;}
-
   .nav-tabs{display:flex;gap:8px;padding:14px 20px;background:var(--surface);border-bottom:1px solid rgba(99,102,241,0.1);overflow-x:auto;}
   .tab{padding:8px 18px;border-radius:99px;border:none;cursor:pointer;font-size:0.85rem;font-weight:600;background:var(--card);color:var(--muted);transition:all 0.2s;white-space:nowrap;}
   .tab.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;}
-
   .content{flex:1;padding:20px;max-width:900px;margin:0 auto;width:100%;}
-
   .exam-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin-bottom:24px;}
   .exam-card{background:var(--card);border-radius:var(--radius);padding:16px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all 0.2s;}
   .exam-card:hover,.exam-card.selected{border-color:var(--accent);background:rgba(99,102,241,0.1);}
   .exam-card .icon{font-size:2rem;margin-bottom:8px;}
-  .exam-card .name{font-size:0.85rem;font-weight:700;color:var(--text);}
+  .exam-card .name{font-size:0.85rem;font-weight:700;}
   .exam-card .sub{font-size:0.75rem;color:var(--muted);}
-
   .chat-wrap{display:flex;flex-direction:column;height:calc(100vh - 280px);min-height:400px;}
   .chat-box{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;background:var(--card);border-radius:var(--radius);margin-bottom:12px;}
   .msg{max-width:85%;padding:12px 16px;border-radius:var(--radius);line-height:1.6;font-size:0.95rem;}
   .msg.user{align-self:flex-end;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border-bottom-right-radius:4px;}
   .msg.ai{align-self:flex-start;background:var(--surface);border-bottom-left-radius:4px;}
   .msg.ai .msg-header{font-size:0.75rem;color:var(--accent2);margin-bottom:6px;font-weight:700;}
-  .typing{align-self:flex-start;background:var(--surface);padding:12px 16px;border-radius:var(--radius);border-bottom-left-radius:4px;}
+  .typing{align-self:flex-start;background:var(--surface);padding:12px 16px;border-radius:var(--radius);}
   .typing span{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);animation:bounce 1.2s infinite;}
   .typing span:nth-child(2){animation-delay:0.2s;}
   .typing span:nth-child(3){animation-delay:0.4s;}
   @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-
   .chat-input-wrap{display:flex;gap:10px;}
-  .chat-input{flex:1;padding:14px 18px;background:var(--card);border:1px solid rgba(99,102,241,0.3);border-radius:99px;color:var(--text);font-size:1rem;outline:none;transition:border 0.2s;}
+  .chat-input{flex:1;padding:14px 18px;background:var(--card);border:1px solid rgba(99,102,241,0.3);border-radius:99px;color:var(--text);font-size:1rem;outline:none;}
   .chat-input:focus{border-color:var(--accent);}
-  .send-btn{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:transform 0.2s;}
+  .send-btn{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;cursor:pointer;font-size:1.2rem;transition:transform 0.2s;}
   .send-btn:hover{transform:scale(1.1);}
-
   .lang-bar{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
   .lang-btn{padding:5px 12px;border-radius:99px;border:1px solid rgba(99,102,241,0.3);background:transparent;color:var(--muted);font-size:0.8rem;cursor:pointer;transition:all 0.2s;}
   .lang-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
-
   .test-setup{background:var(--card);border-radius:var(--radius);padding:24px;margin-bottom:20px;}
   .test-setup h3{margin-bottom:16px;color:var(--accent2);}
   .test-question{background:var(--card);border-radius:var(--radius);padding:20px;margin-bottom:16px;}
@@ -110,26 +97,18 @@
   .option:hover{border-color:var(--accent);background:rgba(99,102,241,0.1);}
   .option.correct{background:rgba(16,185,129,0.2);border-color:var(--success);}
   .option.wrong{background:rgba(239,68,68,0.2);border-color:var(--danger);}
-
   .stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;margin-bottom:24px;}
   .stat-card{background:var(--card);border-radius:var(--radius);padding:20px;text-align:center;}
   .stat-card .val{font-size:2rem;font-weight:900;color:var(--accent2);}
   .stat-card .lbl{font-size:0.8rem;color:var(--muted);margin-top:4px;}
-
   ::-webkit-scrollbar{width:6px;}
   ::-webkit-scrollbar-track{background:var(--bg);}
   ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:99px;}
-
-  @media(max-width:600px){
-    .exam-grid{grid-template-columns:repeat(3,1fr);}
-    .content{padding:12px;}
-    .chat-wrap{height:calc(100vh - 320px);}
-  }
+  @media(max-width:600px){.content{padding:12px;}.chat-wrap{height:calc(100vh - 320px);}}
 </style>
 </head>
 <body>
 
-<!-- SPLASH -->
 <div id="splash">
   <div class="splash-logo">🧠</div>
   <div class="splash-title">VIDYA AI</div>
@@ -137,14 +116,13 @@
   <div class="splash-bar"><div class="splash-fill"></div></div>
 </div>
 
-<!-- TERMS -->
 <div id="terms">
   <div class="terms-box">
     <h2>📜 Terms & Conditions</h2>
     <p>By using VIDYA AI, you agree that:<br><br>
     • This app is for educational purposes only.<br>
     • AI responses are for guidance — verify with teachers.<br>
-    • Do not misuse the platform for spam or cheating.<br>
+    • Do not misuse the platform.<br>
     • Your data is stored locally on your device only.<br>
     • VIDYA AI is a free service powered by Google Gemini.<br><br>
     <strong>ഈ ആപ്പ് ഉപയോഗിക്കുന്നതിലൂടെ നിങ്ങൾ ഈ നിബന്ധനകൾ അംഗീകരിക്കുന്നു.</strong></p>
@@ -153,7 +131,6 @@
   </div>
 </div>
 
-<!-- LOGIN -->
 <div id="login">
   <div class="login-card">
     <div style="font-size:3rem">🧠</div>
@@ -201,7 +178,6 @@
   </div>
 </div>
 
-<!-- MAIN APP -->
 <div id="app">
   <header>
     <div class="logo">🧠 VIDYA AI</div>
@@ -224,15 +200,13 @@
     <button class="tab" onclick="showTab('exams',this)">🏆 Exams</button>
   </div>
   <div class="content">
-
-    <!-- ASK AI TAB -->
     <div id="tab-ask">
       <div class="lang-bar" id="langBar"></div>
       <div class="chat-wrap">
         <div class="chat-box" id="chatBox">
           <div class="msg ai">
             <div class="msg-header">🧠 VIDYA AI</div>
-            നമസ്കാരം! Hello! I'm VIDYA AI — your smart study companion for all Indian competitive exams. Ask me anything about Physics, Chemistry, Maths, Biology, or any exam topic! 🎓
+            നമസ്കാരം! Hello! I'm VIDYA AI — your smart study companion for all Indian competitive exams. Ask me anything! 🎓
           </div>
         </div>
         <div class="chat-input-wrap">
@@ -242,7 +216,6 @@
       </div>
     </div>
 
-    <!-- MOCK TEST TAB -->
     <div id="tab-test" style="display:none">
       <div class="test-setup">
         <h3>📝 Generate Mock Test</h3>
@@ -256,7 +229,7 @@
             </select>
           </div>
           <div class="input-group">
-            <label>Number of Questions</label>
+            <label>Questions</label>
             <select id="testCount">
               <option value="5">5 Questions</option>
               <option value="10">10 Questions</option>
@@ -268,21 +241,19 @@
       <div id="testArea"></div>
     </div>
 
-    <!-- PROGRESS TAB -->
     <div id="tab-progress" style="display:none">
       <div class="stats-grid">
         <div class="stat-card"><div class="val" id="statXP">0</div><div class="lbl">⭐ Total XP</div></div>
         <div class="stat-card"><div class="val" id="statLevel">1</div><div class="lbl">🏆 Level</div></div>
-        <div class="stat-card"><div class="val" id="statQuestions">0</div><div class="lbl">💬 Questions Asked</div></div>
+        <div class="stat-card"><div class="val" id="statQuestions">0</div><div class="lbl">💬 Questions</div></div>
         <div class="stat-card"><div class="val" id="statTests">0</div><div class="lbl">📝 Tests Taken</div></div>
       </div>
       <div style="background:var(--card);border-radius:var(--radius);padding:20px;">
         <h3 style="color:var(--accent2);margin-bottom:12px;">🎯 Your Target</h3>
-        <p id="progressTarget" style="color:var(--muted);">Loading...</p>
+        <p id="progressTarget" style="color:var(--muted);"></p>
       </div>
     </div>
 
-    <!-- EXAMS TAB -->
     <div id="tab-exams" style="display:none">
       <h3 style="margin-bottom:16px;color:var(--accent2);">🏆 Supported Exams</h3>
       <div class="exam-grid">
@@ -303,26 +274,25 @@
         <div id="examInfoContent"></div>
       </div>
     </div>
-
   </div>
 </div>
 
 <script>
+// ======= CONFIGURATION =======
+// IMPORTANT: Replace YOUR_SCRIPT_URL and YOUR_API_KEY with actual values
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwIjjGn6GP01q1q9uOynQyuoGGoXLr_E2bkO_ttMHI7Q77s0mUQewDA1ch04McFpsq00A/exec";
-const API_KEY = "AIzaSyBrSwbig_u4QV_bq1RbSGy61SvxOBbhNjI";
+const API_KEY = "AIzaSyAhwU4oJ9XZD4g335VbkkKQiZ5FC0SeRMI";
 
+// ======= STATE =======
 let user = {name:"",cls:"",exam:"",lang:"English",xp:0,level:1,questions:0,tests:0};
 let currentLang = "English";
-
 const LANGS = ["English","Malayalam","Hindi","Tamil","Telugu","Kannada","Bengali","Marathi","Gujarati","Odia"];
-const LEVELS = [
-  [0,"Beginner"],[100,"Explorer"],[250,"Scholar"],[500,"Achiever"],
-  [1000,"Expert"],[2000,"Master"],[4000,"Champion"],[8000,"Legend"]
-];
+const LEVELS = [[0,"Beginner"],[100,"Explorer"],[250,"Scholar"],[500,"Achiever"],[1000,"Expert"],[2000,"Master"],[4000,"Champion"],[8000,"Legend"]];
 
+// ======= INIT =======
 window.onload = () => {
   const saved = localStorage.getItem("vidyaUser");
-  if(saved){ user = JSON.parse(saved); }
+  if(saved) user = JSON.parse(saved);
   setTimeout(()=>{
     document.getElementById("splash").classList.add("hide");
     if(user.name){ startApp(true); }
@@ -348,15 +318,11 @@ function startApp(returning=false){
   document.getElementById("login").classList.remove("show");
   document.getElementById("app").classList.add("show");
   document.getElementById("avatarEl").textContent=user.name[0].toUpperCase();
-  buildLangBar();
-  updateXP();
-  updateProgress();
-  saveUser();
+  buildLangBar(); updateXP(); updateProgress(); saveUser();
 }
 
 function buildLangBar(){
-  const bar=document.getElementById("langBar");
-  bar.innerHTML=LANGS.map(l=>`<button class="lang-btn${l===currentLang?' active':''}" onclick="setLang('${l}',this)">${l}</button>`).join("");
+  document.getElementById("langBar").innerHTML=LANGS.map(l=>`<button class="lang-btn${l===currentLang?' active':''}" onclick="setLang('${l}',this)">${l}</button>`).join("");
 }
 
 function setLang(l,el){
@@ -365,9 +331,7 @@ function setLang(l,el){
   el.classList.add("active");
 }
 
-function addXP(pts){
-  user.xp+=pts; updateXP(); saveUser();
-}
+function addXP(pts){ user.xp+=pts; updateXP(); saveUser(); }
 
 function updateXP(){
   let lvl=0,lvlName="Beginner",nextXP=100;
@@ -388,8 +352,7 @@ function updateXP(){
 function updateProgress(){
   document.getElementById("statQuestions").textContent=user.questions||0;
   document.getElementById("statTests").textContent=user.tests||0;
-  document.getElementById("progressTarget").textContent=
-    `🎯 Target: ${user.exam} | 📚 Class: ${user.cls} | 🌐 Language: ${user.lang}`;
+  document.getElementById("progressTarget").textContent=`🎯 Target: ${user.exam} | 📚 Class: ${user.cls} | 🌐 Language: ${user.lang}`;
 }
 
 function saveUser(){ localStorage.setItem("vidyaUser",JSON.stringify(user)); }
@@ -402,6 +365,7 @@ function showTab(id,el){
   if(id==="progress") updateProgress();
 }
 
+// ======= CHAT =======
 async function sendMsg(){
   const inp=document.getElementById("chatInput");
   const msg=inp.value.trim();
@@ -410,20 +374,15 @@ async function sendMsg(){
   appendMsg("user",msg);
   showTyping();
   user.questions++; saveUser();
-
   const prompt=`You are VIDYA AI, India's expert competitive exam tutor.
 Student: ${user.name}, ${user.cls}, Target: ${user.exam}.
 IMPORTANT: Reply ONLY in ${currentLang} language.
 Keep answer clear, structured, student-friendly.
-If it's a concept, explain step by step.
-If it's a problem, solve with steps.
 Question: ${msg}`;
-
   const reply=await callGemini(prompt);
   hideTyping();
   appendMsg("ai",reply);
-  addXP(10);
-  updateProgress();
+  addXP(10); updateProgress();
 }
 
 function appendMsg(role,text){
@@ -437,9 +396,7 @@ function appendMsg(role,text){
 }
 
 function formatText(t){
-  return t.replace(/\*\*(.*?)\*\*/g,"<strong>$1</strong>")
-          .replace(/\*(.*?)\*/g,"<em>$1</em>")
-          .replace(/\n/g,"<br>");
+  return t.replace(/\*\*(.*?)\*\*/g,"<strong>$1</strong>").replace(/\*(.*?)\*/g,"<em>$1</em>").replace(/\n/g,"<br>");
 }
 
 let typingEl=null;
@@ -453,18 +410,17 @@ function showTyping(){
 }
 function hideTyping(){ if(typingEl){typingEl.remove();typingEl=null;} }
 
+// ======= MOCK TEST =======
 async function generateTest(){
   const subj=document.getElementById("testSubject").value;
   const cnt=document.getElementById("testCount").value;
   const area=document.getElementById("testArea");
   area.innerHTML=`<div style="padding:20px;color:var(--muted);">⏳ Generating test...</div>`;
-
   const prompt=`Generate ${cnt} multiple choice questions for ${subj} for ${user.cls} student targeting ${user.exam}.
 Reply ONLY in ${currentLang}.
 Format EXACTLY as JSON array:
 [{"q":"question","opts":["A","B","C","D"],"ans":0,"exp":"brief explanation"}]
 Only JSON, no extra text.`;
-
   const raw=await callGemini(prompt);
   try{
     const clean=raw.replace(/```json|```/g,"").trim();
@@ -499,6 +455,7 @@ function checkAns(el,chosen,correct,exp){
   }
 }
 
+// ======= EXAM INFO =======
 async function selectExamInfo(el,exam){
   document.querySelectorAll(".exam-card").forEach(c=>c.classList.remove("selected"));
   el.classList.add("selected");
@@ -506,43 +463,32 @@ async function selectExamInfo(el,exam){
   const content=document.getElementById("examInfoContent");
   box.style.display="block";
   content.innerHTML=`<div style="color:var(--muted);">⏳ Loading...</div>`;
-  const prompt=`Give a concise overview of ${exam} exam in ${currentLang}:
-- Full name, eligibility, syllabus highlights
-- Pattern, difficulty, preparation tips
-Keep it brief and student-friendly.`;
-  const reply=await callGemini(prompt);
+  const reply=await callGemini(`Give a concise overview of ${exam} exam in ${currentLang}: eligibility, syllabus, pattern, tips. Be brief and student-friendly.`);
   content.innerHTML=`<h3 style="color:var(--accent2);margin-bottom:12px;">📋 ${exam}</h3>${formatText(reply)}`;
 }
 
+// ======= GEMINI API — VIA GOOGLE APPS SCRIPT ONLY =======
 async function callGemini(prompt){
-  try{
-    const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`,{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({contents:[{parts:[{text:prompt}]}],generationConfig:{temperature:0.7,maxOutputTokens:1024}})
-    });
-    const d=await res.json();
-    if(d.candidates&&d.candidates[0])
-      return d.candidates[0].content.parts[0].text;
-    return "Sorry, no response. Please try again.";
-  }catch(e){
-    try{
-      return await callViaScript(prompt);
-    }catch(e2){
-      return "⚠️ Connection error. Please check internet and try again.";
-    }
-  }
-}
-
-async function callViaScript(prompt){
-  return new Promise((res,rej)=>{
-    const fn="cb_"+Date.now();
-    window[fn]=(d)=>{ delete window[fn]; res(d.reply||"No response"); };
+  return new Promise((resolve)=>{
+    const cbName="vidya_"+Date.now();
+    const timer=setTimeout(()=>{
+      delete window[cbName];
+      resolve("⚠️ Timeout. Please try again.");
+    },20000);
+    window[cbName]=(data)=>{
+      clearTimeout(timer);
+      delete window[cbName];
+      if(data && data.reply) resolve(data.reply);
+      else resolve("Sorry, no response. Please try again.");
+    };
     const s=document.createElement("script");
-    s.src=SCRIPT_URL+"?prompt="+encodeURIComponent(prompt)+"&callback="+fn;
-    s.onerror=()=>rej("Script error");
+    s.src=SCRIPT_URL+"?prompt="+encodeURIComponent(prompt)+"&callback="+cbName;
+    s.onerror=()=>{
+      clearTimeout(timer);
+      delete window[cbName];
+      resolve("⚠️ Connection error. Please try again.");
+    };
     document.head.appendChild(s);
-    setTimeout(()=>rej("Timeout"),15000);
   });
 }
 </script>
