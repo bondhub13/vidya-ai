@@ -207,7 +207,7 @@ header{background:linear-gradient(135deg,#1e293b,#1e1b4b);padding:9px 18px;displ
     </div>
     <div class="hdr-r">
       <div class="xp-b">⭐ <span id="xpSh">0</span> XP</div>
-      <button style="background:transparent;border:1px solid rgba(99,102,241,0.3);border-radius:99px;padding:4px 9px;color:var(--mut);cursor:pointer;font-size:0.72rem;" onclick="document.getElementById('setMod').classList.add('show')">⚙️</button>
+      <button style="background:transparent;border:1px solid rgba(99,102,241,0.3);border-radius:99px;padding:4px 9px;color:var(--mut);cursor:pointer;font-size:0.72rem;"       onclick="showSettings()">⚙️</button>
       <div class="av" id="avEl">V</div>
     </div>
   </header>
@@ -378,11 +378,14 @@ header{background:linear-gradient(135deg,#1e293b,#1e1b4b);padding:9px 18px;displ
 <div class="modal" id="setMod">
   <div class="mbox">
     <h2>⚙️ Settings</h2>
-    <label class="lbl">🔑 Update API Key</label>
-    <input class="inp" type="password" id="newK" placeholder="New Gemini API key..."/>
-    <button class="btn btn-p" style="max-width:160px;margin-bottom:14px;" onclick="updKey()">Save</button>
+    <label class="lbl">🔑 Current API Key Status</label>
+    <div id="keyStatus" style="padding:10px;border-radius:10px;margin-bottom:12px;font-size:0.85rem;"></div>
+    <label class="lbl">🔑 Enter / Update API Key</label>
+    <input class="inp" type="text" id="newK" placeholder="Paste Gemini API key here..."/>
+    <button class="btn btn-p" style="max-width:200px;margin-bottom:14px;" onclick="updKey()">💾 Save API Key</button>
+    <div id="saveStatus" style="font-size:0.85rem;color:var(--ok);margin-bottom:14px;display:none;">✅ Key saved successfully!</div>
     <hr style="border-color:rgba(99,102,241,0.2);margin-bottom:14px;"/>
-    <button class="btn btn-p" style="background:var(--err);max-width:160px;margin-bottom:10px;" onclick="if(confirm('Reset all?')){localStorage.clear();location.reload();}">🔄 Reset App</button><br>
+    <button class="btn btn-p" style="background:var(--err);max-width:200px;margin-bottom:12px;" onclick="if(confirm('Reset all data? API key will also be cleared.')){localStorage.clear();location.reload();}">🔄 Reset App</button><br>
     <button class="btn-sm" style="background:var(--card);color:var(--mut);margin-top:8px;" onclick="document.getElementById('setMod').classList.remove('show')">✕ Close</button>
   </div>
 </div>
@@ -436,12 +439,43 @@ function saveKey(){
   document.getElementById("termsMod").classList.add("show");
 }
 
+function showSettings(){
+  const mod=document.getElementById("setMod");
+  mod.classList.add("show");
+  // Show current key status
+  const status=document.getElementById("keyStatus");
+  const keyInp=document.getElementById("newK");
+  if(apiKey&&apiKey.length>10){
+    status.style.background="rgba(16,185,129,0.15)";
+    status.style.color="var(--ok)";
+    status.innerHTML=`✅ API Key is set: ${apiKey.substring(0,8)}...${apiKey.substring(apiKey.length-4)}`;
+    keyInp.placeholder="Enter new key to replace...";
+  } else {
+    status.style.background="rgba(239,68,68,0.15)";
+    status.style.color="var(--err)";
+    status.innerHTML="❌ No API Key found! Please enter your Gemini API key.";
+    keyInp.placeholder="Paste your Gemini API key here...";
+  }
+}
+
 function updKey(){
   const k=document.getElementById("newK").value.trim();
-  if(k.length<20){alert("Invalid!");return;}
-  apiKey=k; localStorage.setItem("vvK",k);
-  document.getElementById("setMod").classList.remove("show");
-  alert("✅ Updated!");
+  if(k.length<20){
+    alert("❌ Invalid API key! Please paste a valid Gemini API key.");
+    return;
+  }
+  apiKey=k;
+  localStorage.setItem("vvK",k);
+  // Show success
+  const ss=document.getElementById("saveStatus");
+  ss.style.display="block";
+  setTimeout(()=>ss.style.display="none",3000);
+  // Update status display
+  const status=document.getElementById("keyStatus");
+  status.style.background="rgba(16,185,129,0.15)";
+  status.style.color="var(--ok)";
+  status.innerHTML=`✅ API Key saved: ${k.substring(0,8)}...${k.substring(k.length-4)}`;
+  document.getElementById("newK").value="";
 }
 
 function showLogin(){
