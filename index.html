@@ -6,209 +6,163 @@
 <meta name="theme-color" content="#0f172a"/>
 <title>VIDYA VIBRANT — AI School Platform</title>
 <style>
-:root{--bg:#0f172a;--surface:#1e293b;--card:#243044;--accent:#6366f1;--accent2:#22d3ee;--gold:#f59e0b;--text:#e2e8f0;--muted:#94a3b8;--success:#10b981;--danger:#ef4444;--warning:#f59e0b;--radius:16px;}
+:root{--bg:#0f172a;--sur:#1e293b;--card:#243044;--acc:#6366f1;--acc2:#22d3ee;--gold:#f59e0b;--txt:#e2e8f0;--mut:#94a3b8;--ok:#10b981;--err:#ef4444;--r:16px;}
 *{margin:0;padding:0;box-sizing:border-box;}
-html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;}
-
-/* SPLASH */
+html,body{height:100%;background:var(--bg);color:var(--txt);font-family:'Segoe UI',system-ui,sans-serif;}
 #splash{position:fixed;inset:0;background:linear-gradient(135deg,#0f172a,#1e1b4b);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999;transition:opacity 0.6s;}
 #splash.hide{opacity:0;pointer-events:none;}
-.splash-logo{font-size:80px;animation:float 3s ease-in-out infinite;}
-.splash-title{font-size:2.8rem;font-weight:900;background:linear-gradient(135deg,#6366f1,#22d3ee,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-top:16px;}
-.splash-sub{color:var(--muted);margin-top:8px;font-size:1rem;text-align:center;padding:0 20px;}
-.splash-tagline{color:var(--accent2);margin-top:6px;font-size:0.9rem;font-style:italic;}
-.splash-bar{width:280px;height:5px;background:rgba(255,255,255,0.1);border-radius:99px;margin-top:32px;overflow:hidden;}
-.splash-fill{height:100%;background:linear-gradient(90deg,#6366f1,#22d3ee,#f59e0b);animation:load 3s forwards;}
-@keyframes load{from{width:0}to{width:100%}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
-
-/* MODALS */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,0.9);display:none;align-items:center;justify-content:center;z-index:990;padding:16px;overflow-y:auto;}
+.sp-logo{font-size:80px;animation:float 3s ease-in-out infinite;}
+.sp-title{font-size:2.8rem;font-weight:900;background:linear-gradient(135deg,#6366f1,#22d3ee,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-top:12px;}
+.sp-sub{color:var(--mut);margin-top:6px;font-size:0.95rem;text-align:center;padding:0 20px;}
+.sp-bar{width:260px;height:5px;background:rgba(255,255,255,0.1);border-radius:99px;margin-top:28px;overflow:hidden;}
+.sp-fill{height:100%;background:linear-gradient(90deg,#6366f1,#22d3ee,#f59e0b);animation:ld 3s forwards;}
+@keyframes ld{from{width:0}to{width:100%}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.92);display:none;align-items:center;justify-content:center;z-index:990;padding:16px;overflow-y:auto;}
 .modal.show{display:flex;}
-.modal-box{background:var(--surface);border-radius:var(--radius);padding:32px;max-width:500px;width:100%;border:1px solid rgba(99,102,241,0.4);max-height:90vh;overflow-y:auto;}
-.modal-box h2{color:var(--accent2);margin-bottom:16px;font-size:1.4rem;}
-
-/* INPUTS */
-.inp{width:100%;padding:13px 16px;background:var(--card);border:1px solid rgba(99,102,241,0.3);border-radius:10px;color:var(--text);font-size:1rem;outline:none;transition:border 0.2s;margin-bottom:14px;}
-.inp:focus{border-color:var(--accent);}
-.inp-label{font-size:0.85rem;color:var(--muted);margin-bottom:6px;display:block;}
-
-/* BUTTONS */
-.btn{padding:13px 24px;border-radius:99px;border:none;cursor:pointer;font-weight:700;font-size:0.95rem;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px;}
-.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;width:100%;justify-content:center;}
-.btn-primary:hover{opacity:0.9;transform:scale(1.02);}
-.btn-primary:disabled{opacity:0.4;cursor:not-allowed;transform:none;}
-.btn-sm{padding:7px 16px;font-size:0.82rem;border-radius:99px;border:none;cursor:pointer;font-weight:600;}
-.btn-accent{background:var(--accent);color:#fff;}
-.btn-success{background:var(--success);color:#fff;}
-.btn-danger{background:var(--danger);color:#fff;}
-.btn-gold{background:var(--gold);color:#000;}
-
-/* APP LAYOUT */
+.mbox{background:var(--sur);border-radius:var(--r);padding:28px;max-width:480px;width:100%;border:1px solid rgba(99,102,241,0.4);max-height:90vh;overflow-y:auto;}
+.mbox h2{color:var(--acc2);margin-bottom:14px;font-size:1.35rem;}
+.inp{width:100%;padding:12px 15px;background:var(--card);border:1px solid rgba(99,102,241,0.3);border-radius:10px;color:var(--txt);font-size:0.95rem;outline:none;margin-bottom:12px;}
+.inp:focus{border-color:var(--acc);}
+.lbl{font-size:0.82rem;color:var(--mut);margin-bottom:5px;display:block;}
+.btn{padding:12px 22px;border-radius:99px;border:none;cursor:pointer;font-weight:700;font-size:0.92rem;transition:all 0.2s;}
+.btn-p{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;width:100%;display:block;text-align:center;}
+.btn-p:hover{opacity:0.9;}
+.btn-p:disabled{opacity:0.4;cursor:not-allowed;}
+.btn-sm{padding:7px 14px;border-radius:99px;border:none;cursor:pointer;font-weight:600;font-size:0.8rem;}
+.back-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:99px;border:1px solid rgba(99,102,241,0.3);background:transparent;color:var(--mut);cursor:pointer;font-size:0.82rem;margin-bottom:12px;}
+.back-btn:hover{border-color:var(--acc);color:var(--txt);}
 #app{display:none;flex-direction:column;height:100vh;overflow:hidden;}
 #app.show{display:flex;}
-
-/* HEADER */
-header{background:linear-gradient(135deg,#1e293b,#1e1b4b);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(99,102,241,0.3);flex-shrink:0;}
-.logo{font-size:1.3rem;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.header-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
-.xp-badge{background:rgba(245,158,11,0.2);border:1px solid var(--gold);border-radius:99px;padding:4px 12px;font-size:0.8rem;color:var(--gold);font-weight:700;}
-.avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;cursor:pointer;flex-shrink:0;}
-
-/* XP BAR */
-.xp-wrap{background:var(--surface);padding:6px 20px;border-bottom:1px solid rgba(99,102,241,0.1);flex-shrink:0;}
-.xp-info{display:flex;justify-content:space-between;font-size:0.75rem;color:var(--muted);margin-bottom:4px;}
-.xp-bar{height:6px;background:var(--card);border-radius:99px;overflow:hidden;}
-.xp-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--gold));border-radius:99px;transition:width 0.5s;}
-
-/* NAV */
-.nav{display:flex;gap:4px;padding:8px 16px;background:var(--surface);border-bottom:1px solid rgba(99,102,241,0.1);flex-shrink:0;overflow-x:auto;}
-.nav-btn{padding:7px 14px;border-radius:99px;border:none;cursor:pointer;font-size:0.8rem;font-weight:600;background:var(--card);color:var(--muted);transition:all 0.2s;white-space:nowrap;}
-.nav-btn.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;}
-
-/* CONTENT */
-.content{flex:1;overflow-y:auto;padding:16px 20px;}
-
-/* CARDS */
-.card{background:var(--card);border-radius:var(--radius);padding:20px;margin-bottom:16px;border:1px solid rgba(99,102,241,0.1);}
-.card h3{color:var(--accent2);margin-bottom:12px;font-size:1.1rem;}
-
-/* SUBJECT GRID */
-.subject-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px;margin-bottom:16px;}
-.subject-card{background:var(--card);border-radius:var(--radius);padding:16px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all 0.2s;}
-.subject-card:hover,.subject-card.active{border-color:var(--accent);background:rgba(99,102,241,0.15);}
-.subject-card .s-icon{font-size:2rem;margin-bottom:8px;}
-.subject-card .s-name{font-size:0.82rem;font-weight:700;}
-
-/* CHAPTER LIST */
-.chapter-item{background:var(--surface);border-radius:12px;padding:14px 18px;margin-bottom:8px;cursor:pointer;border:1px solid rgba(99,102,241,0.1);transition:all 0.2s;display:flex;align-items:center;justify-content:space-between;}
-.chapter-item:hover{border-color:var(--accent);background:rgba(99,102,241,0.1);}
-.chapter-item.done{border-color:var(--success);background:rgba(16,185,129,0.05);}
-.ch-info{flex:1;}
-.ch-title{font-weight:600;font-size:0.95rem;}
-.ch-sub{font-size:0.78rem;color:var(--muted);margin-top:3px;}
-.ch-badge{padding:3px 10px;border-radius:99px;font-size:0.72rem;font-weight:700;}
-
-/* CHAT */
-.chat-wrap{display:flex;flex-direction:column;height:calc(100vh - 220px);min-height:300px;}
-.chat-box{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px;background:var(--card);border-radius:var(--radius);margin-bottom:10px;}
-.msg{padding:12px 16px;border-radius:var(--radius);line-height:1.7;font-size:0.93rem;}
-.msg.user{align-self:flex-end;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border-bottom-right-radius:4px;max-width:80%;}
-.msg.ai{align-self:flex-start;background:var(--surface);border-bottom-left-radius:4px;width:100%;}
-.msg-header{font-size:0.72rem;color:var(--accent2);margin-bottom:6px;font-weight:700;display:flex;align-items:center;gap:6px;}
-.msg-body{line-height:1.8;}
-.tts-btn{background:rgba(99,102,241,0.2);border:none;border-radius:99px;padding:3px 10px;font-size:0.75rem;color:var(--accent2);cursor:pointer;margin-top:8px;}
-.typing{align-self:flex-start;background:var(--surface);padding:12px 16px;border-radius:var(--radius);}
-.typing span{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);animation:bounce 1.2s infinite;margin:0 2px;}
-.typing span:nth-child(2){animation-delay:0.2s;}
-.typing span:nth-child(3){animation-delay:0.4s;}
+header{background:linear-gradient(135deg,#1e293b,#1e1b4b);padding:9px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(99,102,241,0.3);flex-shrink:0;}
+.logo{font-size:1.25rem;font-weight:900;background:linear-gradient(135deg,var(--acc),var(--acc2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hdr-sub{font-size:0.7rem;color:var(--mut);margin-top:1px;}
+.hdr-r{display:flex;align-items:center;gap:8px;}
+.xp-b{background:rgba(245,158,11,0.15);border:1px solid var(--gold);border-radius:99px;padding:4px 11px;font-size:0.78rem;color:var(--gold);font-weight:700;}
+.av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--acc2));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;cursor:pointer;}
+.xp-wrap{background:var(--sur);padding:5px 18px;border-bottom:1px solid rgba(99,102,241,0.1);flex-shrink:0;}
+.xp-info{display:flex;justify-content:space-between;font-size:0.72rem;color:var(--mut);margin-bottom:3px;}
+.xp-bar{height:5px;background:var(--card);border-radius:99px;overflow:hidden;}
+.xp-f{height:100%;background:linear-gradient(90deg,var(--acc),var(--acc2),var(--gold));border-radius:99px;transition:width 0.5s;}
+.nav{display:flex;gap:3px;padding:7px 14px;background:var(--sur);border-bottom:1px solid rgba(99,102,241,0.1);flex-shrink:0;overflow-x:auto;}
+.nb{padding:7px 13px;border-radius:99px;border:none;cursor:pointer;font-size:0.78rem;font-weight:600;background:var(--card);color:var(--mut);transition:all 0.2s;white-space:nowrap;}
+.nb.active{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;}
+.content{flex:1;overflow-y:auto;padding:14px 18px;}
+.card{background:var(--card);border-radius:var(--r);padding:18px;margin-bottom:14px;border:1px solid rgba(99,102,241,0.1);}
+.card h3{color:var(--acc2);margin-bottom:10px;font-size:1.05rem;}
+.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;}
+.sc{background:var(--sur);border-radius:12px;padding:14px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all 0.2s;}
+.sc:hover,.sc.sel{border-color:var(--acc);background:rgba(99,102,241,0.12);}
+.sc .si{font-size:1.9rem;margin-bottom:6px;}
+.sc .sn{font-size:0.78rem;font-weight:700;}
+.chi{background:var(--sur);border-radius:10px;padding:12px 16px;margin-bottom:7px;cursor:pointer;border:1px solid rgba(99,102,241,0.1);transition:all 0.2s;display:flex;align-items:center;justify-content:space-between;}
+.chi:hover{border-color:var(--acc);background:rgba(99,102,241,0.08);}
+.ch-t{font-weight:600;font-size:0.9rem;}
+.ch-s{font-size:0.75rem;color:var(--mut);margin-top:2px;}
+.chat-w{display:flex;flex-direction:column;height:calc(100vh - 210px);min-height:300px;}
+.chat-b{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:10px;background:var(--card);border-radius:var(--r);margin-bottom:8px;}
+.msg{padding:11px 15px;border-radius:var(--r);line-height:1.7;font-size:0.92rem;}
+.msg.u{align-self:flex-end;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border-bottom-right-radius:4px;max-width:80%;}
+.msg.a{align-self:flex-start;background:var(--sur);border-bottom-left-radius:4px;width:100%;}
+.mh{font-size:0.7rem;color:var(--acc2);margin-bottom:5px;font-weight:700;}
+.mb{line-height:1.8;font-size:0.92rem;}
+.tts-bar{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;}
+.tts-btn{background:rgba(99,102,241,0.15);border:1px solid rgba(99,102,241,0.3);border-radius:99px;padding:4px 11px;font-size:0.75rem;color:var(--acc2);cursor:pointer;}
+.tts-btn:hover{background:rgba(99,102,241,0.3);}
+.typing{align-self:flex-start;background:var(--sur);padding:12px 15px;border-radius:var(--r);}
+.typing span{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--acc);animation:bounce 1.2s infinite;margin:0 2px;}
+.typing span:nth-child(2){animation-delay:.2s;}
+.typing span:nth-child(3){animation-delay:.4s;}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-.chat-input-row{display:flex;gap:8px;flex-shrink:0;}
-.chat-inp{flex:1;padding:13px 18px;background:var(--card);border:1px solid rgba(99,102,241,0.3);border-radius:99px;color:var(--text);font-size:0.95rem;outline:none;}
-.chat-inp:focus{border-color:var(--accent);}
-.send-btn{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;cursor:pointer;font-size:1.2rem;flex-shrink:0;}
-.mic-btn{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--danger),#f97316);border:none;cursor:pointer;font-size:1.2rem;flex-shrink:0;}
-
-/* EXAM */
-.exam-header{background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:var(--radius);padding:16px 20px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;}
-.timer-display{font-size:1.8rem;font-weight:900;color:#fff;font-family:monospace;}
-.exam-q{background:var(--surface);border-radius:var(--radius);padding:20px;margin-bottom:14px;border:1px solid rgba(99,102,241,0.1);}
-.exam-q .q-text{font-size:1rem;font-weight:600;margin-bottom:14px;line-height:1.6;}
-.exam-option{padding:12px 16px;border-radius:10px;border:1px solid rgba(99,102,241,0.2);margin-bottom:8px;cursor:pointer;transition:all 0.2s;font-size:0.92rem;}
-.exam-option:hover{border-color:var(--accent);background:rgba(99,102,241,0.1);}
-.exam-option.selected{border-color:var(--accent2);background:rgba(34,211,238,0.1);}
-.exam-option.correct{background:rgba(16,185,129,0.2);border-color:var(--success);}
-.exam-option.wrong{background:rgba(239,68,68,0.2);border-color:var(--danger);}
-.result-box{background:linear-gradient(135deg,var(--card),var(--surface));border-radius:var(--radius);padding:28px;text-align:center;border:2px solid var(--accent);}
-.result-score{font-size:3rem;font-weight:900;background:linear-gradient(135deg,var(--accent2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-
-/* SCHEDULE */
-.schedule-day{background:var(--surface);border-radius:12px;padding:16px;margin-bottom:10px;border-left:4px solid var(--accent);}
-.schedule-day.today{border-left-color:var(--gold);background:rgba(245,158,11,0.05);}
-.schedule-day.done{border-left-color:var(--success);}
-
-/* STATS */
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:20px;}
-.stat-card{background:var(--card);border-radius:var(--radius);padding:18px;text-align:center;}
-.stat-val{font-size:2rem;font-weight:900;color:var(--accent2);}
-.stat-lbl{font-size:0.78rem;color:var(--muted);margin-top:4px;}
-
-/* LANG BAR */
-.lang-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
-.lang-btn{padding:5px 11px;border-radius:99px;border:1px solid rgba(99,102,241,0.3);background:transparent;color:var(--muted);font-size:0.78rem;cursor:pointer;transition:all 0.2s;}
-.lang-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
-
+.ci-row{display:flex;gap:7px;flex-shrink:0;}
+.ci{flex:1;padding:12px 16px;background:var(--card);border:1px solid rgba(99,102,241,0.3);border-radius:99px;color:var(--txt);font-size:0.92rem;outline:none;}
+.ci:focus{border-color:var(--acc);}
+.send-b{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--acc2));border:none;cursor:pointer;font-size:1.1rem;flex-shrink:0;}
+.mic-b{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--err),#f97316);border:none;cursor:pointer;font-size:1.1rem;flex-shrink:0;}
+.eq{background:var(--sur);border-radius:var(--r);padding:18px;margin-bottom:12px;border:1px solid rgba(99,102,241,0.1);}
+.qt{font-size:0.95rem;font-weight:600;margin-bottom:12px;line-height:1.6;}
+.eo{padding:11px 15px;border-radius:9px;border:1px solid rgba(99,102,241,0.2);margin-bottom:7px;cursor:pointer;transition:all 0.2s;font-size:0.88rem;line-height:1.5;}
+.eo:hover{border-color:var(--acc);background:rgba(99,102,241,0.1);}
+.eo.sel{border-color:var(--acc2);background:rgba(34,211,238,0.1);}
+.eo.ok{background:rgba(16,185,129,0.2);border-color:var(--ok);}
+.eo.no{background:rgba(239,68,68,0.2);border-color:var(--err);}
+.exp-box{margin-top:10px;padding:11px 14px;background:rgba(99,102,241,0.1);border-radius:9px;font-size:0.83rem;color:var(--mut);line-height:1.6;}
+.res-box{background:linear-gradient(135deg,var(--card),var(--sur));border-radius:var(--r);padding:24px;text-align:center;border:2px solid var(--acc);margin-bottom:16px;}
+.res-score{font-size:2.8rem;font-weight:900;background:linear-gradient(135deg,var(--acc2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.stg{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:16px;}
+.stc{background:var(--card);border-radius:var(--r);padding:16px;text-align:center;}
+.stv{font-size:1.9rem;font-weight:900;color:var(--acc2);}
+.stl{font-size:0.75rem;color:var(--mut);margin-top:3px;}
+.lb{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px;}
+.lbt{padding:4px 10px;border-radius:99px;border:1px solid rgba(99,102,241,0.3);background:transparent;color:var(--mut);font-size:0.75rem;cursor:pointer;}
+.lbt.active{background:var(--acc);color:#fff;border-color:var(--acc);}
+.eh{background:linear-gradient(135deg,var(--acc),var(--acc2));border-radius:var(--r);padding:14px 18px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;}
+.timer{font-size:1.6rem;font-weight:900;color:#fff;font-family:monospace;}
+.sel-cursor-area{position:relative;}
+.sel-cursor-area::selection{background:rgba(99,102,241,0.4);}
 ::-webkit-scrollbar{width:4px;}
-::-webkit-scrollbar-thumb{background:var(--accent);border-radius:99px;}
-
-@media(max-width:600px){
-  .content{padding:12px 14px;}
-  header{padding:8px 14px;}
-  .subject-grid{grid-template-columns:repeat(3,1fr);}
-  .stats-grid{grid-template-columns:repeat(2,1fr);}
-}
+::-webkit-scrollbar-thumb{background:var(--acc);border-radius:99px;}
+@media(max-width:600px){.content{padding:10px 12px;}.sg{grid-template-columns:repeat(3,1fr);}.stg{grid-template-columns:repeat(2,1fr);}}
 </style>
 </head>
 <body>
 
-<!-- SPLASH -->
 <div id="splash">
-  <div class="splash-logo">🎓</div>
-  <div class="splash-title">VIDYA VIBRANT</div>
-  <div class="splash-sub">India's #1 AI-Powered School Learning Platform</div>
-  <div class="splash-tagline">IIT JEE • NEET • CBSE • ICSE • State Board • Olympiads</div>
-  <div class="splash-bar"><div class="splash-fill"></div></div>
+  <div class="sp-logo">🎓</div>
+  <div class="sp-title">VIDYA VIBRANT</div>
+  <div class="sp-sub">India's #1 AI School Learning Platform<br>IIT JEE • NEET • CBSE • ICSE • State Boards</div>
+  <div class="sp-bar"><div class="sp-fill"></div></div>
 </div>
 
 <!-- API SETUP -->
-<div class="modal" id="apiModal">
-  <div class="modal-box">
-    <h2>🔑 Setup Your AI Key</h2>
-    <p style="color:var(--muted);font-size:0.88rem;margin-bottom:16px;line-height:1.6;">
-      VIDYA VIBRANT uses Google Gemini AI — completely FREE!<br><br>
-      <strong style="color:var(--accent2);">Get your free key:</strong><br>
-      1. Go to <strong>aistudio.google.com</strong><br>
-      2. Click "Get API Key" → "Create API Key"<br>
-      3. Copy and paste below
+<div class="modal" id="apiMod">
+  <div class="mbox">
+    <h2>🔑 One-Time Setup</h2>
+    <p style="color:var(--mut);font-size:0.85rem;margin-bottom:14px;line-height:1.6;">
+      VIDYA VIBRANT runs on Google Gemini AI — <strong style="color:var(--acc2);">completely FREE!</strong><br><br>
+      Get your free key in 2 minutes:<br>
+      1. Open <strong>aistudio.google.com</strong><br>
+      2. Click <strong>"Get API Key"</strong> → <strong>"Create API Key"</strong><br>
+      3. Copy and paste below 👇
     </p>
-    <label class="inp-label">🔑 Paste Gemini API Key</label>
-    <input class="inp" id="apiKeyInp" type="password" placeholder="AIzaSy..."/>
-    <button class="btn btn-primary" onclick="saveKey()">✅ Save & Start</button>
+    <label class="lbl">🔑 Your Gemini API Key</label>
+    <input class="inp" id="apiInp" type="password" placeholder="AIzaSy..."/>
+    <button class="btn btn-p" onclick="saveKey()">✅ Save & Continue</button>
   </div>
 </div>
 
 <!-- TERMS -->
-<div class="modal" id="termsModal">
-  <div class="modal-box">
+<div class="modal" id="termsMod">
+  <div class="mbox">
     <h2>📜 Terms of Use</h2>
-    <p style="color:var(--muted);font-size:0.88rem;line-height:1.7;margin-bottom:16px;">
-      • Educational platform for students Class 3–12<br>
-      • AI content is for learning guidance only<br>
-      • Data stored locally on your device<br>
-      • Free service powered by Google Gemini AI<br>
-      • No personal data shared externally<br><br>
+    <p style="color:var(--mut);font-size:0.85rem;line-height:1.7;margin-bottom:14px;">
+      • Educational platform for Class 3–12 students<br>
+      • AI content is guidance only — verify with teachers<br>
+      • All data stored locally on your device<br>
+      • No personal data shared externally<br>
+      • Free service powered by Google Gemini AI<br><br>
       <strong>ഈ ആപ്പ് ഉപയോഗിക്കുന്നതിലൂടെ നിങ്ങൾ ഈ നിബന്ധനകൾ അംഗീകരിക്കുന്നു.</strong>
     </p>
-    <label style="display:flex;gap:10px;align-items:center;cursor:pointer;margin-bottom:18px;color:var(--text);">
-      <input type="checkbox" id="termsCheck" onchange="document.getElementById('termsBtn').disabled=!this.checked"/>
+    <label style="display:flex;gap:9px;align-items:center;cursor:pointer;margin-bottom:16px;color:var(--txt);font-size:0.88rem;">
+      <input type="checkbox" id="tChk" onchange="document.getElementById('tBtn').disabled=!this.checked"/>
       I agree to Terms & Conditions
     </label>
-    <button class="btn btn-primary" id="termsBtn" disabled onclick="showLogin()">Continue →</button>
+    <button class="btn btn-p" id="tBtn" disabled onclick="showLogin()">Continue →</button>
   </div>
 </div>
 
 <!-- LOGIN -->
-<div class="modal" id="loginModal">
-  <div class="modal-box">
-    <div style="text-align:center;margin-bottom:20px;">
+<div class="modal" id="loginMod">
+  <div class="mbox">
+    <div style="text-align:center;margin-bottom:18px;">
       <div style="font-size:3rem;">🎓</div>
-      <h1 style="font-size:1.8rem;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">VIDYA VIBRANT</h1>
-      <p style="color:var(--muted);font-size:0.88rem;margin-top:4px;">Your AI-Powered Study Companion</p>
+      <div style="font-size:1.7rem;font-weight:900;background:linear-gradient(135deg,var(--acc),var(--acc2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">VIDYA VIBRANT</div>
+      <div style="color:var(--mut);font-size:0.82rem;margin-top:4px;">Your AI-Powered Study Companion</div>
     </div>
-    <label class="inp-label">👤 Your Name</label>
-    <input class="inp" id="uName" placeholder="Enter your name..."/>
-    <label class="inp-label">📚 Your Class</label>
-    <select class="inp" id="uClass">
+    <label class="lbl">👤 Student Name</label>
+    <input class="inp" id="uN" placeholder="Enter name..."/>
+    <label class="lbl">📚 Class</label>
+    <select class="inp" id="uC">
       <option value="">Select Class</option>
       <option value="3">Class 3</option><option value="4">Class 4</option>
       <option value="5">Class 5</option><option value="6">Class 6</option>
@@ -216,34 +170,31 @@ header{background:linear-gradient(135deg,#1e293b,#1e1b4b);padding:10px 20px;disp
       <option value="9">Class 9</option><option value="10">Class 10</option>
       <option value="11">Class 11</option><option value="12">Class 12</option>
     </select>
-    <label class="inp-label">🏆 Target Exam</label>
-    <select class="inp" id="uExam">
+    <label class="lbl">🏆 Target Exam</label>
+    <select class="inp" id="uE">
       <option value="">Select Target</option>
       <option>IIT JEE</option><option>NEET</option><option>AIIMS</option>
       <option>LSS</option><option>USS</option><option>IMO</option>
-      <option>ISO</option><option>NTSE</option><option>KVPY</option>
-      <option>Board Exam</option><option>NDA</option><option>Other</option>
+      <option>NTSE</option><option>Board Exam</option><option>Other</option>
     </select>
-    <label class="inp-label">📋 Board / Syllabus</label>
-    <select class="inp" id="uBoard">
+    <label class="lbl">📋 Board</label>
+    <select class="inp" id="uB">
       <option value="">Select Board</option>
-      <option>CBSE</option><option>ICSE</option><option>Kerala State</option>
+      <option>CBSE</option><option>ICSE</option><option>Kerala State Board</option>
       <option>Maharashtra State</option><option>Tamil Nadu State</option>
       <option>Karnataka State</option><option>AP/Telangana State</option>
-      <option>Other State Board</option><option>International (IB/Cambridge)</option>
+      <option>Other State Board</option>
     </select>
-    <label class="inp-label">🌐 Language</label>
-    <select class="inp" id="uLang">
+    <label class="lbl">🌐 Primary Language</label>
+    <select class="inp" id="uL">
       <option value="English">English</option>
       <option value="Malayalam">Malayalam / മലയാളം</option>
       <option value="Hindi">Hindi / हिंदी</option>
       <option value="Tamil">Tamil / தமிழ்</option>
       <option value="Telugu">Telugu / తెలుగు</option>
       <option value="Kannada">Kannada / ಕನ್ನಡ</option>
-      <option value="Bengali">Bengali / বাংলা</option>
-      <option value="Marathi">Marathi / मराठी</option>
     </select>
-    <button class="btn btn-primary" onclick="startApp()">🚀 Start Learning!</button>
+    <button class="btn btn-p" style="margin-top:6px;" onclick="startApp()">🚀 Start Learning!</button>
   </div>
 </div>
 
@@ -252,832 +203,1021 @@ header{background:linear-gradient(135deg,#1e293b,#1e1b4b);padding:10px 20px;disp
   <header>
     <div>
       <div class="logo">🎓 VIDYA VIBRANT</div>
-      <div style="font-size:0.72rem;color:var(--muted);margin-top:2px;" id="headerSub">AI School Platform</div>
+      <div class="hdr-sub" id="hdrSub">AI School Platform</div>
     </div>
-    <div class="header-right">
-      <div class="xp-badge">⭐ <span id="xpShow">0</span> XP</div>
-      <button style="background:transparent;border:1px solid rgba(99,102,241,0.3);border-radius:99px;padding:4px 10px;color:var(--muted);cursor:pointer;font-size:0.75rem;" onclick="showSettings()">⚙️</button>
-      <div class="avatar" id="avatarEl">V</div>
+    <div class="hdr-r">
+      <div class="xp-b">⭐ <span id="xpSh">0</span> XP</div>
+      <button style="background:transparent;border:1px solid rgba(99,102,241,0.3);border-radius:99px;padding:4px 9px;color:var(--mut);cursor:pointer;font-size:0.72rem;" onclick="document.getElementById('setMod').classList.add('show')">⚙️</button>
+      <div class="av" id="avEl">V</div>
     </div>
   </header>
   <div class="xp-wrap">
-    <div class="xp-info"><span id="levelShow">Level 1 — Beginner</span><span id="xpNextShow">0/100 XP</span></div>
-    <div class="xp-bar"><div class="xp-fill" id="xpFill" style="width:0%"></div></div>
+    <div class="xp-info"><span id="lvlSh">Level 1 — Beginner</span><span id="xpNx">0/100 XP</span></div>
+    <div class="xp-bar"><div class="xp-f" id="xpF" style="width:0%"></div></div>
   </div>
   <div class="nav">
-    <button class="nav-btn active" onclick="goTab('learn',this)">📚 Learn</button>
-    <button class="nav-btn" onclick="goTab('ask',this)">💬 Ask AI</button>
-    <button class="nav-btn" onclick="goTab('exam',this)">📝 Exam</button>
-    <button class="nav-btn" onclick="goTab('schedule',this)">📅 Schedule</button>
-    <button class="nav-btn" onclick="goTab('progress',this)">📊 Progress</button>
-    <button class="nav-btn" onclick="goTab('jee',this)">🏆 JEE/NEET</button>
+    <button class="nb active" onclick="goTab('learn',this)">📚 Learn</button>
+    <button class="nb" onclick="goTab('ask',this)">💬 Ask AI</button>
+    <button class="nb" onclick="goTab('exam',this)">📝 Exam</button>
+    <button class="nb" onclick="goTab('sched',this)">📅 Schedule</button>
+    <button class="nb" onclick="goTab('prog',this)">📊 Progress</button>
+    <button class="nb" onclick="goTab('jee',this)">🏆 JEE/NEET</button>
   </div>
-  <div class="content" id="mainContent">
+  <div class="content" id="mainC">
 
-    <!-- LEARN TAB -->
+    <!-- LEARN -->
     <div id="tab-learn">
-      <div class="lang-bar" id="langBar"></div>
-      <div class="card">
-        <h3>📚 Select Subject</h3>
-        <div class="subject-grid" id="subjectGrid"></div>
-      </div>
-      <div id="chapterSection" style="display:none;">
+      <div class="lb" id="lbLearn"></div>
+      <!-- Subject Selection -->
+      <div id="sec-subj">
         <div class="card">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
-            <h3 id="chapterTitle">📖 Chapters</h3>
-            <button class="btn-sm btn-accent" onclick="document.getElementById('chapterSection').style.display='none'">← Back</button>
-          </div>
-          <div id="chapterList"></div>
+          <h3>📚 Select Subject</h3>
+          <div class="sg" id="subjGrid"></div>
         </div>
       </div>
-      <div id="lessonSection" style="display:none;">
+      <!-- Chapter List -->
+      <div id="sec-chap" style="display:none;">
+        <button class="back-btn" onclick="showSec('subj')">← Back to Subjects</button>
         <div class="card">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
-            <h3 id="lessonTitle">📖 Lesson</h3>
-            <button class="btn-sm btn-accent" onclick="document.getElementById('lessonSection').style.display='none';document.getElementById('chapterSection').style.display='block'">← Chapters</button>
+          <h3 id="chapTitle">📖 Chapters</h3>
+          <div id="chapList"></div>
+        </div>
+      </div>
+      <!-- Lesson -->
+      <div id="sec-less" style="display:none;">
+        <button class="back-btn" onclick="showSec('chap')">← Back to Chapters</button>
+        <div class="card">
+          <h3 id="lessTitle">📖 Lesson</h3>
+          <div id="lessBody" class="sel-cursor-area" style="line-height:1.9;font-size:0.93rem;" onmouseup="onTextSelect()" onclick="onTextSelect()"></div>
+          <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="btn-sm" style="background:var(--acc);color:#fff;" onclick="startChapExam()">📝 Chapter Test</button>
+            <button class="btn-sm" style="background:var(--ok);color:#fff;" onclick="genHomework()">📋 Homework</button>
+            <button class="btn-sm" style="background:var(--gold);color:#000;" onclick="genNotes()">📓 Quick Notes</button>
+            <button class="tts-btn" onclick="speakFull()">🔊 Read Full</button>
+            <button class="tts-btn" id="stopBtn" onclick="stopSpeak()" style="display:none;">⏹ Stop</button>
           </div>
-          <div id="lessonContent" style="line-height:1.9;font-size:0.95rem;"></div>
-          <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
-            <button class="btn-sm btn-accent" onclick="startChapterExam()">📝 Chapter Test</button>
-            <button class="btn-sm btn-success" onclick="generateHomework()">📋 Homework</button>
-            <button class="btn-sm btn-gold" onclick="generateNotes()">📓 Quick Notes</button>
-            <button class="btn-sm" style="background:var(--card);color:var(--text);" onclick="speakText(document.getElementById('lessonContent').innerText)">🔊 Read Aloud</button>
+          <div id="selectedReadBar" style="display:none;margin-top:8px;">
+            <button class="tts-btn" id="selReadBtn" onclick="speakSelected()">🔊 Read Selected Text</button>
           </div>
         </div>
-        <div id="homeworkSection" style="display:none;" class="card">
-          <h3>📋 Today's Homework</h3>
-          <div id="homeworkContent"></div>
+        <div id="hwSec" style="display:none;" class="card">
+          <h3>📋 Homework</h3>
+          <div id="hwBody"></div>
         </div>
       </div>
     </div>
 
-    <!-- ASK AI TAB -->
+    <!-- ASK AI -->
     <div id="tab-ask" style="display:none;">
-      <div class="lang-bar" id="langBar2"></div>
-      <div class="chat-wrap">
-        <div class="chat-box" id="chatBox">
-          <div class="msg ai">
-            <div class="msg-header">🧠 VIDYA AI <span style="color:var(--muted);font-weight:400;">• Always here to help</span></div>
-            <div class="msg-body">
-              നമസ്കാരം! Hello! I'm your VIDYA AI Tutor! 🎓<br><br>
-              I can help you with:<br>
-              • 📚 Any subject — NCERT/CBSE/ICSE/State Board<br>
-              • 🔢 IIT JEE Foundation & Advanced Problems<br>
-              • 🏥 NEET / AIIMS Preparation<br>
-              • 📝 Homework & Assignments<br>
-              • 🔬 Concept explanations with examples<br><br>
-              Ask me anything! I speak your language! 💪
+      <div class="lb" id="lbAsk"></div>
+      <div class="chat-w">
+        <div class="chat-b" id="chatB">
+          <div class="msg a">
+            <div class="mh">🧠 VIDYA AI</div>
+            <div class="mb">Hello! I'm your VIDYA AI Tutor! 🎓<br><br>
+            Ask me anything about your subjects, homework, IIT JEE, NEET, or any competitive exam!<br><br>
+            💡 Tip: Select any text in my answer and click <strong>"Read Selected"</strong> to hear just that part!</div>
+            <div class="tts-bar">
+              <button class="tts-btn" onclick="speakEl(this.parentElement.previousElementSibling)">🔊 Read Full</button>
             </div>
-            <button class="tts-btn" onclick="speakText(this.previousElementSibling.innerText)">🔊 Read Aloud</button>
           </div>
         </div>
-        <div class="chat-input-row">
-          <input class="chat-inp" id="chatInp" placeholder="Ask your doubt... / ചോദ്യം ഇവിടെ..." onkeydown="if(event.key==='Enter')sendChat()"/>
-          <button class="mic-btn" onclick="startVoiceInput()" title="Voice Input">🎤</button>
-          <button class="send-btn" onclick="sendChat()">➤</button>
+        <div class="ci-row">
+          <input class="ci" id="chatI" placeholder="Ask your doubt... / ചോദ്യം ഇവിടെ..." onkeydown="if(event.key==='Enter')sendChat()"/>
+          <button class="mic-b" onclick="voiceIn()" title="Voice Input">🎤</button>
+          <button class="send-b" onclick="sendChat()">➤</button>
         </div>
       </div>
     </div>
 
-    <!-- EXAM TAB -->
+    <!-- EXAM -->
     <div id="tab-exam" style="display:none;">
-      <div id="examSetup">
+      <div id="exSetup">
         <div class="card">
           <h3>📝 Generate Smart Exam</h3>
-          <label class="inp-label">Subject</label>
-          <select class="inp" id="exSubject">
-            <option>Physics</option><option>Chemistry</option><option>Mathematics</option>
-            <option>Biology</option><option>Science</option><option>English</option>
-            <option>Social Studies</option><option>General Knowledge</option>
-          </select>
-          <label class="inp-label">Number of Questions</label>
-          <select class="inp" id="exCount">
+          <label class="lbl">Subject</label>
+          <select class="inp" id="exS" onchange="updateExSubjects()"></select>
+          <label class="lbl">Number of Questions</label>
+          <select class="inp" id="exN">
             <option value="5">5 Questions</option>
             <option value="10" selected>10 Questions</option>
             <option value="15">15 Questions</option>
-            <option value="20">20 Questions</option>
           </select>
-          <label class="inp-label">Difficulty Level</label>
-          <select class="inp" id="exDiff">
-            <option>Easy</option><option selected>Medium</option><option>Hard</option><option>IIT JEE Level</option><option>NEET Level</option>
+          <label class="lbl">Difficulty</label>
+          <select class="inp" id="exD">
+            <option>Easy</option><option selected>Medium</option>
+            <option>Hard</option><option>IIT JEE Level</option><option>NEET Level</option>
           </select>
-          <label class="inp-label">Exam Type</label>
-          <select class="inp" id="exType">
-            <option>MCQ Only</option>
-            <option>MCQ + Descriptive</option>
-            <option>IIT JEE Pattern</option>
-            <option>NEET Pattern</option>
-          </select>
-          <label class="inp-label">⏱️ Time per question (seconds)</label>
-          <select class="inp" id="exTime">
+          <label class="lbl">Time per Question</label>
+          <select class="inp" id="exT">
             <option value="60">1 minute</option>
             <option value="90" selected>1.5 minutes</option>
             <option value="120">2 minutes</option>
-            <option value="180">3 minutes</option>
           </select>
-          <label style="display:flex;gap:10px;align-items:center;cursor:pointer;margin-bottom:16px;color:var(--text);font-size:0.9rem;">
-            <input type="checkbox" id="negMarkCheck" checked/>
-            Enable Negative Marking (-0.25 per wrong)
+          <label style="display:flex;gap:8px;align-items:center;cursor:pointer;margin-bottom:14px;color:var(--txt);font-size:0.88rem;">
+            <input type="checkbox" id="negChk" checked/> Negative Marking (-0.25 per wrong)
           </label>
-          <button class="btn btn-primary" onclick="startExam()">⚡ Start Exam</button>
+          <button class="btn btn-p" onclick="startExam()">⚡ Start Exam</button>
         </div>
       </div>
-      <div id="examArea" style="display:none;"></div>
-      <div id="examResult" style="display:none;"></div>
+      <div id="exArea" style="display:none;"></div>
     </div>
 
-    <!-- SCHEDULE TAB -->
-    <div id="tab-schedule" style="display:none;">
+    <!-- SCHEDULE -->
+    <div id="tab-sched" style="display:none;">
       <div class="card">
-        <h3>📅 Your Study Schedule</h3>
-        <p style="color:var(--muted);font-size:0.85rem;margin-bottom:16px;">AI-generated personalized daily schedule based on your class and target exam.</p>
-        <button class="btn btn-primary" style="max-width:240px;" onclick="generateSchedule()">🗓️ Generate My Schedule</button>
+        <h3>📅 AI Study Schedule</h3>
+        <p style="color:var(--mut);font-size:0.82rem;margin-bottom:14px;">Personalized daily schedule based on your class and target.</p>
+        <button class="btn btn-p" style="max-width:220px;" onclick="genSched()">🗓️ Generate My Schedule</button>
       </div>
-      <div id="scheduleContent"></div>
+      <div id="schedC"></div>
     </div>
 
-    <!-- PROGRESS TAB -->
-    <div id="tab-progress" style="display:none;">
-      <div class="stats-grid">
-        <div class="stat-card"><div class="stat-val" id="st-xp">0</div><div class="stat-lbl">⭐ Total XP</div></div>
-        <div class="stat-card"><div class="stat-val" id="st-level">1</div><div class="stat-lbl">🏆 Level</div></div>
-        <div class="stat-card"><div class="stat-val" id="st-q">0</div><div class="stat-lbl">💬 Questions</div></div>
-        <div class="stat-card"><div class="stat-val" id="st-tests">0</div><div class="stat-lbl">📝 Exams</div></div>
-        <div class="stat-card"><div class="stat-val" id="st-correct">0</div><div class="stat-lbl">✅ Correct</div></div>
-        <div class="stat-card"><div class="stat-val" id="st-streak">0</div><div class="stat-lbl">🔥 Streak</div></div>
+    <!-- PROGRESS -->
+    <div id="tab-prog" style="display:none;">
+      <div class="stg">
+        <div class="stc"><div class="stv" id="st-xp">0</div><div class="stl">⭐ XP</div></div>
+        <div class="stc"><div class="stv" id="st-lv">1</div><div class="stl">🏆 Level</div></div>
+        <div class="stc"><div class="stv" id="st-q">0</div><div class="stl">💬 Questions</div></div>
+        <div class="stc"><div class="stv" id="st-t">0</div><div class="stl">📝 Exams</div></div>
+        <div class="stc"><div class="stv" id="st-c">0</div><div class="stl">✅ Correct</div></div>
+        <div class="stc"><div class="stv" id="st-s">0</div><div class="stl">🔥 Streak</div></div>
       </div>
       <div class="card">
-        <h3>🎯 Student Profile</h3>
-        <div id="profileContent" style="line-height:2;color:var(--muted);font-size:0.9rem;"></div>
+        <h3>🎯 My Profile</h3>
+        <div id="profC" style="line-height:2;color:var(--mut);font-size:0.88rem;"></div>
       </div>
       <div class="card">
-        <h3>📊 AI Performance Analysis</h3>
-        <button class="btn btn-primary" style="max-width:220px;" onclick="getAnalysis()">🧠 Analyze My Progress</button>
-        <div id="analysisContent" style="margin-top:14px;"></div>
+        <h3>📊 AI Analysis</h3>
+        <button class="btn btn-p" style="max-width:200px;" onclick="getAnalysis()">🧠 Analyze Progress</button>
+        <div id="analC" style="margin-top:12px;"></div>
       </div>
     </div>
 
-    <!-- JEE/NEET TAB -->
+    <!-- JEE/NEET -->
     <div id="tab-jee" style="display:none;">
-      <div class="card" style="background:linear-gradient(135deg,rgba(99,102,241,0.1),rgba(34,211,238,0.1));border-color:var(--accent);">
+      <div class="card" style="background:linear-gradient(135deg,rgba(99,102,241,0.1),rgba(34,211,238,0.1));border-color:var(--acc);">
         <h3>🏆 IIT JEE / NEET Preparation Hub</h3>
-        <p style="color:var(--muted);font-size:0.85rem;margin-bottom:16px;">20 years of previous year questions. Pattern-based preparation. Foundation to Advanced.</p>
+        <p style="color:var(--mut);font-size:0.82rem;">20 years question patterns • Foundation to Advanced • All subjects</p>
       </div>
-      <div class="subject-grid">
-        <div class="subject-card" onclick="jeeNeetTopic('Physics','IIT JEE')"><div class="s-icon">⚡</div><div class="s-name">Physics JEE</div></div>
-        <div class="subject-card" onclick="jeeNeetTopic('Chemistry','IIT JEE')"><div class="s-icon">🧪</div><div class="s-name">Chemistry JEE</div></div>
-        <div class="subject-card" onclick="jeeNeetTopic('Mathematics','IIT JEE')"><div class="s-icon">📐</div><div class="s-name">Maths JEE</div></div>
-        <div class="subject-card" onclick="jeeNeetTopic('Physics','NEET')"><div class="s-icon">🏥</div><div class="s-name">Physics NEET</div></div>
-        <div class="subject-card" onclick="jeeNeetTopic('Chemistry','NEET')"><div class="s-icon">💊</div><div class="s-name">Chemistry NEET</div></div>
-        <div class="subject-card" onclick="jeeNeetTopic('Biology','NEET/AIIMS')"><div class="s-icon">🔬</div><div class="s-name">Biology NEET</div></div>
+      <div class="sg" style="margin-bottom:14px;">
+        <div class="sc" onclick="jeeT('Physics','IIT JEE')"><div class="si">⚡</div><div class="sn">Physics JEE</div></div>
+        <div class="sc" onclick="jeeT('Chemistry','IIT JEE')"><div class="si">🧪</div><div class="sn">Chem JEE</div></div>
+        <div class="sc" onclick="jeeT('Mathematics','IIT JEE')"><div class="si">📐</div><div class="sn">Maths JEE</div></div>
+        <div class="sc" onclick="jeeT('Physics','NEET')"><div class="si">🏥</div><div class="sn">Physics NEET</div></div>
+        <div class="sc" onclick="jeeT('Chemistry','NEET')"><div class="si">💊</div><div class="sn">Chem NEET</div></div>
+        <div class="sc" onclick="jeeT('Biology','NEET/AIIMS')"><div class="si">🔬</div><div class="sn">Bio NEET</div></div>
       </div>
-      <div id="jeeContent" class="card" style="display:none;">
-        <div id="jeeContentInner"></div>
-      </div>
+      <div class="card" id="jeeC" style="display:none;"><div id="jeeCi"></div></div>
     </div>
 
   </div>
 </div>
 
 <!-- SETTINGS -->
-<div class="modal" id="settingsModal">
-  <div class="modal-box">
+<div class="modal" id="setMod">
+  <div class="mbox">
     <h2>⚙️ Settings</h2>
-    <label class="inp-label">🔑 Update API Key</label>
-    <input class="inp" type="password" id="newKeyInp" placeholder="Paste new Gemini API key..."/>
-    <button class="btn btn-primary" style="max-width:180px;margin-bottom:16px;" onclick="updateKey()">Save Key</button>
-    <hr style="border-color:rgba(99,102,241,0.2);margin-bottom:16px;"/>
-    <button class="btn btn-primary" style="background:var(--danger);max-width:180px;margin-bottom:12px;" onclick="if(confirm('Reset all data?')){localStorage.clear();location.reload();}">🔄 Reset App</button>
-    <br>
-    <button class="btn-sm" style="background:var(--card);color:var(--muted);" onclick="document.getElementById('settingsModal').classList.remove('show')">✕ Close</button>
+    <label class="lbl">🔑 Update API Key</label>
+    <input class="inp" type="password" id="newK" placeholder="New Gemini API key..."/>
+    <button class="btn btn-p" style="max-width:160px;margin-bottom:14px;" onclick="updKey()">Save</button>
+    <hr style="border-color:rgba(99,102,241,0.2);margin-bottom:14px;"/>
+    <button class="btn btn-p" style="background:var(--err);max-width:160px;margin-bottom:10px;" onclick="if(confirm('Reset all?')){localStorage.clear();location.reload();}">🔄 Reset App</button><br>
+    <button class="btn-sm" style="background:var(--card);color:var(--mut);margin-top:8px;" onclick="document.getElementById('setMod').classList.remove('show')">✕ Close</button>
   </div>
 </div>
 
 <script>
-// ===== CONFIG =====
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwIjjGn6GP01q1q9uOynQyuoGGoXLr_E2bkO_ttMHI7Q77s0mUQewDA1ch04McFpsq00A/exec";
+const SURL="https://script.google.com/macros/s/AKfycbwIjjGn6GP01q1q9uOynQyuoGGoXLr_E2bkO_ttMHI7Q77s0mUQewDA1ch04McFpsq00A/exec";
 
-// ===== STATE =====
-let S = {name:"",cls:"",exam:"",board:"",lang:"English",xp:0,level:1,q:0,tests:0,correct:0,streak:0,lastDate:""};
-let apiKey = "";
-let lang = "English";
-let currentSubject = "";
-let currentChapter = "";
-let examQuestions = [];
-let examAnswers = [];
-let examTimer = null;
-let examTimeLeft = 0;
-let ttsUtterance = null;
-
-const LANGS = ["English","Malayalam","Hindi","Tamil","Telugu","Kannada","Bengali","Marathi"];
-const LEVELS = [[0,"Beginner"],[100,"Explorer"],[250,"Scholar"],[500,"Achiever"],[1000,"Expert"],[2000,"Master"],[4000,"Champion"],[8000,"Legend"]];
-
-// Subjects per class
-const SUBJECTS = {
-  "3":["Mathematics","English","Environmental Studies","Hindi","General Knowledge"],
-  "4":["Mathematics","English","Environmental Studies","Hindi","General Knowledge"],
-  "5":["Mathematics","English","Environmental Studies","Hindi","General Knowledge"],
-  "6":["Mathematics","English","Science","Social Studies","Hindi"],
-  "7":["Mathematics","English","Science","Social Studies","Hindi"],
-  "8":["Mathematics","English","Science","Social Studies","Hindi"],
-  "9":["Mathematics","English","Science","Social Studies","Hindi","Sanskrit"],
-  "10":["Mathematics","English","Science","Social Studies","Hindi","Sanskrit"],
+// Subjects per class (Fixed - only relevant subjects)
+const SUBJ={
+  "3":["Mathematics","English","EVS"],
+  "4":["Mathematics","English","EVS"],
+  "5":["Mathematics","English","EVS"],
+  "6":["Mathematics","English","Science"],
+  "7":["Mathematics","English","Science"],
+  "8":["Mathematics","English","Science"],
+  "9":["Mathematics","English","Science","Physics","Chemistry","Biology"],
+  "10":["Mathematics","English","Science","Physics","Chemistry","Biology"],
   "11":["Physics","Chemistry","Mathematics","Biology","English"],
   "12":["Physics","Chemistry","Mathematics","Biology","English"]
 };
 
-const SUBJECT_ICONS = {
-  "Mathematics":"📐","English":"📖","Science":"🔬","Physics":"⚡","Chemistry":"🧪",
-  "Biology":"🌱","Social Studies":"🌍","Hindi":"🇮🇳","Environmental Studies":"🌿",
-  "General Knowledge":"💡","Sanskrit":"📜"
-};
+const SICONS={"Mathematics":"📐","English":"📖","EVS":"🌿","Science":"🔬","Physics":"⚡","Chemistry":"🧪","Biology":"🌱"};
+const LANGS=["English","Malayalam","Hindi","Tamil","Telugu","Kannada"];
+const LEVELS=[[0,"Beginner"],[100,"Explorer"],[250,"Scholar"],[500,"Achiever"],[1000,"Expert"],[2000,"Master"],[4000,"Champion"],[8000,"Legend"]];
+
+// Cache for API responses
+const cache={};
+
+let S={name:"",cls:"",exam:"",board:"",lang:"English",xp:0,level:1,q:0,tests:0,correct:0,streak:0,lastDate:""};
+let apiKey="", lang="English", curSubj="", curChap="", exQs=[], exAs=[], exTimer=null, exTime=0;
+let selectedText="";
 
 // ===== INIT =====
-window.onload = ()=>{
-  apiKey = localStorage.getItem("vvApiKey")||"";
-  const saved = localStorage.getItem("vvUser");
-  if(saved) S = {...S,...JSON.parse(saved)};
+window.onload=()=>{
+  apiKey=localStorage.getItem("vvK")||"";
+  const sv=localStorage.getItem("vvS");
+  if(sv) S={...S,...JSON.parse(sv)};
   setTimeout(()=>{
     document.getElementById("splash").classList.add("hide");
-    if(!apiKey) document.getElementById("apiModal").classList.add("show");
-    else if(!S.name) document.getElementById("termsModal").classList.add("show");
+    if(!apiKey) document.getElementById("apiMod").classList.add("show");
+    else if(!S.name) document.getElementById("termsMod").classList.add("show");
     else startApp(true);
   },3000);
 };
 
 function saveKey(){
-  const k=document.getElementById("apiKeyInp").value.trim();
+  const k=document.getElementById("apiInp").value.trim();
   if(k.length<20){alert("Please enter a valid API key!");return;}
-  apiKey=k; localStorage.setItem("vvApiKey",k);
-  document.getElementById("apiModal").classList.remove("show");
-  document.getElementById("termsModal").classList.add("show");
+  apiKey=k; localStorage.setItem("vvK",k);
+  document.getElementById("apiMod").classList.remove("show");
+  document.getElementById("termsMod").classList.add("show");
 }
 
-function updateKey(){
-  const k=document.getElementById("newKeyInp").value.trim();
-  if(k.length<20){alert("Invalid key!");return;}
-  apiKey=k; localStorage.setItem("vvApiKey",k);
-  document.getElementById("settingsModal").classList.remove("show");
-  alert("✅ API Key updated!");
+function updKey(){
+  const k=document.getElementById("newK").value.trim();
+  if(k.length<20){alert("Invalid!");return;}
+  apiKey=k; localStorage.setItem("vvK",k);
+  document.getElementById("setMod").classList.remove("show");
+  alert("✅ Updated!");
 }
 
 function showLogin(){
-  document.getElementById("termsModal").classList.remove("show");
-  document.getElementById("loginModal").classList.add("show");
+  document.getElementById("termsMod").classList.remove("show");
+  document.getElementById("loginMod").classList.add("show");
 }
 
 function startApp(ret=false){
   if(!ret){
-    const n=document.getElementById("uName").value.trim();
-    const c=document.getElementById("uClass").value;
-    const e=document.getElementById("uExam").value;
-    const b=document.getElementById("uBoard").value;
-    const l=document.getElementById("uLang").value;
+    const n=document.getElementById("uN").value.trim();
+    const c=document.getElementById("uC").value;
+    const e=document.getElementById("uE").value;
+    const b=document.getElementById("uB").value;
+    const l=document.getElementById("uL").value;
     if(!n||!c||!e||!b){alert("Please fill all fields!");return;}
     S={...S,name:n,cls:c,exam:e,board:b,lang:l};
     lang=l;
   } else { lang=S.lang||"English"; }
-  document.getElementById("loginModal").classList.remove("show");
+  document.getElementById("loginMod").classList.remove("show");
   document.getElementById("app").classList.add("show");
-  document.getElementById("avatarEl").textContent=S.name[0].toUpperCase();
-  document.getElementById("headerSub").textContent=`${S.name} • Class ${S.cls} • ${S.exam}`;
-  buildLangBars(); buildSubjects(); updateXP(); updateStreak(); saveS();
+  document.getElementById("avEl").textContent=S.name[0].toUpperCase();
+  document.getElementById("hdrSub").textContent=`${S.name} • Class ${S.cls} • ${S.exam}`;
+  buildLBs(); buildSubjs(); updateExSubjs(); updateXP(); updStreak(); saveS();
 }
 
-function saveS(){ localStorage.setItem("vvUser",JSON.stringify(S)); }
-function showSettings(){ document.getElementById("settingsModal").classList.add("show"); }
+function saveS(){ localStorage.setItem("vvS",JSON.stringify(S)); }
 
-// ===== STREAK =====
-function updateStreak(){
-  const today=new Date().toDateString();
-  if(S.lastDate!==today){ S.streak=(S.lastDate===new Date(Date.now()-86400000).toDateString())?S.streak+1:1; S.lastDate=today; saveS(); }
+function updStreak(){
+  const t=new Date().toDateString();
+  if(S.lastDate!==t){S.streak=(S.lastDate===new Date(Date.now()-86400000).toDateString())?S.streak+1:1;S.lastDate=t;saveS();}
 }
 
 // ===== LANG =====
-function buildLangBars(){
-  ["langBar","langBar2"].forEach(id=>{
+function buildLBs(){
+  ["lbLearn","lbAsk"].forEach(id=>{
     const el=document.getElementById(id);
     if(!el) return;
-    el.innerHTML=LANGS.map(l=>`<button class="lang-btn${l===lang?' active':''}" onclick="setLang('${l}',this,'${id}')">${l}</button>`).join("");
+    el.innerHTML=LANGS.map(l=>`<button class="lbt${l===lang?' active':''}" onclick="setL('${l}',this,'${id}')">${l}</button>`).join("");
   });
 }
 
-function setLang(l,el,barId){
+function setL(l,el,bid){
   lang=l; S.lang=l; saveS();
-  document.querySelectorAll(`#${barId} .lang-btn`).forEach(b=>b.classList.remove("active"));
+  document.querySelectorAll(`#${bid} .lbt`).forEach(b=>b.classList.remove("active"));
   el.classList.add("active");
 }
 
 // ===== XP =====
-function addXP(p){ S.xp+=p; updateXP(); saveS(); }
+function addXP(p){S.xp+=p;updateXP();saveS();}
 
 function updateXP(){
-  let lvl=0,name="Beginner",next=100;
-  for(let i=LEVELS.length-1;i>=0;i--){ if(S.xp>=LEVELS[i][0]){lvl=i+1;name=LEVELS[i][1];next=LEVELS[i+1]?LEVELS[i+1][0]:LEVELS[i][0]+1000;break;} }
-  S.level=lvl||1;
-  const prev=LEVELS[lvl-1]?LEVELS[lvl-1][0]:0;
-  const pct=Math.min(100,((S.xp-prev)/(next-prev))*100);
-  document.getElementById("xpShow").textContent=S.xp;
-  document.getElementById("xpFill").style.width=pct+"%";
-  document.getElementById("levelShow").textContent=`Level ${S.level} — ${name}`;
-  document.getElementById("xpNextShow").textContent=`${S.xp}/${next} XP`;
-  document.getElementById("st-xp").textContent=S.xp;
-  document.getElementById("st-level").textContent=S.level;
-  document.getElementById("st-q").textContent=S.q;
-  document.getElementById("st-tests").textContent=S.tests;
-  document.getElementById("st-correct").textContent=S.correct;
-  document.getElementById("st-streak").textContent=S.streak;
+  let lv=0,ln="Beginner",nx=100;
+  for(let i=LEVELS.length-1;i>=0;i--){if(S.xp>=LEVELS[i][0]){lv=i+1;ln=LEVELS[i][1];nx=LEVELS[i+1]?LEVELS[i+1][0]:LEVELS[i][0]+1000;break;}}
+  S.level=lv||1;
+  const pv=LEVELS[lv-1]?LEVELS[lv-1][0]:0;
+  const pct=Math.min(100,((S.xp-pv)/(nx-pv))*100);
+  document.getElementById("xpSh").textContent=S.xp;
+  document.getElementById("xpF").style.width=pct+"%";
+  document.getElementById("lvlSh").textContent=`Level ${S.level} — ${ln}`;
+  document.getElementById("xpNx").textContent=`${S.xp}/${nx} XP`;
+  ["st-xp","st-lv","st-q","st-t","st-c","st-s"].forEach((id,i)=>{
+    const el=document.getElementById(id);
+    if(el) el.textContent=[S.xp,S.level,S.q,S.tests,S.correct,S.streak][i];
+  });
 }
 
 // ===== TABS =====
 function goTab(id,el){
-  ["learn","ask","exam","schedule","progress","jee"].forEach(t=>{
+  ["learn","ask","exam","sched","prog","jee"].forEach(t=>{
     const e=document.getElementById("tab-"+t);
     if(e) e.style.display="none";
   });
   document.getElementById("tab-"+id).style.display="block";
-  document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));
+  document.querySelectorAll(".nb").forEach(b=>b.classList.remove("active"));
   el.classList.add("active");
-  if(id==="progress") updateProgressTab();
+  if(id==="prog") updProgTab();
+  if(id==="ask") document.getElementById("tab-ask").style.display="flex";
+}
+
+// Make ask tab flex
+document.addEventListener("DOMContentLoaded",()=>{
+  const askTab=document.getElementById("tab-ask");
+  if(askTab) askTab.style.flexDirection="column";
+});
+
+// ===== SECTIONS =====
+function showSec(s){
+  ["subj","chap","less"].forEach(x=>document.getElementById("sec-"+x).style.display="none");
+  document.getElementById("sec-"+s).style.display="block";
 }
 
 // ===== SUBJECTS =====
-function buildSubjects(){
-  const subjects=SUBJECTS[S.cls]||SUBJECTS["10"];
-  const grid=document.getElementById("subjectGrid");
-  grid.innerHTML=subjects.map(s=>`
-    <div class="subject-card" onclick="selectSubject('${s}')">
-      <div class="s-icon">${SUBJECT_ICONS[s]||"📚"}</div>
-      <div class="s-name">${s}</div>
+function buildSubjs(){
+  const ss=SUBJ[S.cls]||SUBJ["10"];
+  document.getElementById("subjGrid").innerHTML=ss.map(s=>`
+    <div class="sc" onclick="selSubj('${s}')">
+      <div class="si">${SICONS[s]||"📚"}</div>
+      <div class="sn">${s}</div>
     </div>`).join("");
 }
 
-function selectSubject(subj){
-  currentSubject=subj;
-  document.getElementById("chapterSection").style.display="block";
-  document.getElementById("chapterTitle").textContent=`📖 ${subj} — Chapters`;
-  const list=document.getElementById("chapterList");
-  list.innerHTML=`<div style="color:var(--muted);padding:10px;">⏳ Loading chapters...</div>`;
-  const prompt=`List the chapter names for ${subj} Class ${S.cls} ${S.board} syllabus in ${lang}.
-Return ONLY a JSON array of chapter names, nothing else:
-["Chapter 1 name","Chapter 2 name",...]`;
-  callAI(prompt).then(raw=>{
-    try{
-      const clean=raw.substring(raw.indexOf('['),raw.lastIndexOf(']')+1);
-      const chapters=JSON.parse(clean);
-      list.innerHTML=chapters.map((ch,i)=>`
-        <div class="chapter-item" onclick="openChapter('${ch.replace(/'/g,"\\'")}')">
-          <div class="ch-info">
-            <div class="ch-title">Chapter ${i+1}: ${ch}</div>
-            <div class="ch-sub">${subj} • Class ${S.cls}</div>
-          </div>
-          <span class="ch-badge" style="background:rgba(99,102,241,0.2);color:var(--accent2);">Study →</span>
-        </div>`).join("");
-    }catch(e){
-      list.innerHTML=`<div style="color:var(--muted);padding:10px;">${raw}</div>`;
-    }
-  });
+function updateExSubjs(){
+  const ss=SUBJ[S.cls]||SUBJ["10"];
+  const sel=document.getElementById("exS");
+  if(sel) sel.innerHTML=ss.map(s=>`<option>${s}</option>`).join("");
 }
 
-function openChapter(ch){
-  currentChapter=ch;
-  document.getElementById("chapterSection").style.display="none";
-  document.getElementById("lessonSection").style.display="block";
-  document.getElementById("lessonTitle").textContent=`📖 ${ch}`;
-  const content=document.getElementById("lessonContent");
-  content.innerHTML=`<div style="color:var(--muted);">⏳ Loading lesson...</div>`;
-  const prompt=`You are an expert ${S.board} teacher for Class ${S.cls}.
-Teach the chapter "${ch}" from ${currentSubject}.
-Reply in ${lang} language.
+async function selSubj(s){
+  curSubj=s;
+  showSec("chap");
+  document.getElementById("chapTitle").textContent=`📖 ${s} — Chapters`;
+  const list=document.getElementById("chapList");
+  list.innerHTML=`<div style="color:var(--mut);padding:10px;">⏳ Loading chapters for Class ${S.cls} ${S.board}...</div>`;
+  
+  const cacheKey=`chap_${s}_${S.cls}_${S.board}`;
+  let r;
+  if(cache[cacheKey]){ r=cache[cacheKey]; }
+  else{
+    const p=`List ALL chapter names for ${s}, Class ${S.cls}, ${S.board} syllabus.
+Return ONLY a JSON array of strings, nothing else:
+["Chapter name 1","Chapter name 2","Chapter name 3",...]
+No explanation, no markdown, just the JSON array.`;
+    r=await callAI(p,800);
+    cache[cacheKey]=r;
+  }
+  
+  try{
+    const st=r.indexOf('['),en=r.lastIndexOf(']');
+    if(st===-1) throw new Error("No array");
+    const chs=JSON.parse(r.substring(st,en+1));
+    list.innerHTML=chs.map((c,i)=>`
+      <div class="chi" onclick="openChap('${c.replace(/['"]/g," ")}')">
+        <div class="ch-info">
+          <div class="ch-t">Ch ${i+1}: ${c}</div>
+          <div class="ch-s">${s} • Class ${S.cls} • ${S.board}</div>
+        </div>
+        <span style="color:var(--acc2);font-size:0.8rem;">Study →</span>
+      </div>`).join("");
+  }catch(e){
+    list.innerHTML=`<div class="card"><div style="line-height:1.8;">${fmtT(r)}</div></div>`;
+  }
+}
+
+async function openChap(ch){
+  curChap=ch;
+  showSec("less");
+  document.getElementById("lessTitle").textContent=`📖 ${ch}`;
+  document.getElementById("hwSec").style.display="none";
+  const body=document.getElementById("lessBody");
+
+  // Show section tabs
+  body.innerHTML=`
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;" id="lessTabs">
+      <button class="tts-btn active" style="background:var(--acc);color:#fff;" onclick="loadSection('explain',this)">📖 Full Explanation</button>
+      <button class="tts-btn" onclick="loadSection('diagram',this)">🖼️ Diagrams & Tables</button>
+      <button class="tts-btn" onclick="loadSection('summary',this)">📝 Summary</button>
+      <button class="tts-btn" onclick="loadSection('mcq',this)">❓ MCQs</button>
+      <button class="tts-btn" onclick="loadSection('notes',this)">⚡ Short Notes</button>
+    </div>
+    <div id="sectionBody"><div style="color:var(--mut);">⏳ Loading full explanation in ${lang}...</div></div>`;
+
+  loadSection('explain', document.querySelector('#lessTabs button'));
+  addXP(5); saveS();
+}
+
+async function loadSection(type, btn){
+  // Update tab styling
+  document.querySelectorAll('#lessTabs button').forEach(b=>{
+    b.style.background=''; b.style.color='';
+  });
+  if(btn){ btn.style.background='var(--acc)'; btn.style.color='#fff'; }
+
+  const body=document.getElementById("sectionBody");
+  body.innerHTML=`<div style="color:var(--mut);">⏳ Loading in ${lang}...</div>`;
+
+  const ck=`${type}_${curChap}_${S.cls}_${lang}`;
+  let r;
+  if(cache[ck]){ r=cache[ck]; body.innerHTML=fmtT(r); return; }
+
+  let p="";
+
+  if(type==="explain"){
+    p=`You are an expert ${S.board} Class ${S.cls} teacher.
+Teach chapter "${curChap}" from ${curSubj} COMPLETELY like an NCERT textbook.
+Language: Write ENTIRELY in ${lang}.
+
+IMPORTANT: Give FULL detailed explanation — minimum 800 words — cover EVERYTHING.
 
 Structure:
-## 🎯 Learning Objectives
-## 📖 Introduction  
-## 🔑 Key Concepts (explain each clearly with examples)
-## 💡 Important Formulas / Facts
-## 🔬 Real-life Examples
-## ⚠️ Common Mistakes to Avoid
-## 📝 Summary
+## 🎯 What You Will Learn
+(List all learning outcomes)
 
-Make it student-friendly, clear, and engaging for Class ${S.cls} student targeting ${S.exam}.`;
-  callAI(prompt,2000).then(r=>{ content.innerHTML=formatText(r); addXP(5); saveS(); });
+## 📖 Introduction
+(Full introduction with context and background — minimum 100 words)
+
+## 🔑 Main Concepts
+(Explain EACH concept in detail with:
+- Clear definition
+- Detailed explanation  
+- Examples from daily life
+- How it works
+Minimum 400 words for this section)
+
+## 💡 Important Formulas & Rules
+(List ALL formulas, rules, laws with explanation of each term)
+
+## 🔬 Detailed Examples
+(Give 3-4 solved examples with step-by-step working)
+
+## 🌍 Real-Life Applications
+(How this chapter applies in real life — minimum 3 examples)
+
+## ⚠️ Common Mistakes Students Make
+(List 5 common mistakes with corrections)
+
+## 📝 Chapter Summary
+(Complete summary in points — cover ALL topics)
+
+Do NOT skip any section. Give COMPLETE content like a proper textbook chapter.`;
+  }
+  else if(type==="diagram"){
+    p=`For chapter "${curChap}" from ${curSubj}, Class ${S.cls} ${S.board}:
+Language: ${lang}
+
+Describe ALL diagrams, charts, tables and visual content from this chapter:
+
+## 🖼️ Diagrams in This Chapter
+
+For each diagram:
+1. **Diagram Name**: (name)
+2. **What it shows**: (detailed description)
+3. **Key parts labeled**: (list all labeled parts)
+4. **How to draw**: (step by step instructions)
+5. **What to remember**: (exam important points)
+
+## 📊 Important Tables
+(Recreate all important tables from this chapter in text format)
+
+## 🔄 Flow Charts & Processes
+(Describe all processes as step-by-step flows)
+
+Be thorough — cover every visual element from this chapter.`;
+  }
+  else if(type==="summary"){
+    p=`Create a complete exam-ready summary for "${curChap}", ${curSubj}, Class ${S.cls}.
+Language: ${lang}
+
+## ⚡ Chapter Summary — ${curChap}
+
+### Key Points (cover every topic):
+• Point 1
+• Point 2
+(minimum 20 key points)
+
+### Important Definitions:
+(All key terms with definitions)
+
+### Formulas & Laws:
+(All formulas — numbered)
+
+### Exam Important Topics:
+(What always comes in exams from this chapter)
+
+### 5-Line Summary:
+(The entire chapter in 5 lines)
+
+Make it complete for last-minute revision.`;
+  }
+  else if(type==="mcq"){
+    p=`Generate 15 MCQ questions for "${curChap}", ${curSubj}, Class ${S.cls} ${S.board}.
+Language: ${lang}
+Based on NCERT content and ${S.exam} exam pattern.
+
+Format each question as:
+**Q1.** Question text?
+A) Option 1
+B) Option 2  
+C) Option 3
+D) Option 4
+✅ **Answer: B**
+💡 **Explanation:** Why this answer is correct.
+
+Include questions from:
+- Basic concepts (5 questions)
+- Application level (5 questions)  
+- Higher order thinking (5 questions)
+
+Make questions exam-standard quality.`;
+  }
+  else if(type==="notes"){
+    p=`Create ultra-compact revision notes for "${curChap}", ${curSubj}, Class ${S.cls}.
+Language: ${lang}
+
+## ⚡ QUICK REVISION — ${curChap}
+
+**One-line chapter definition:**
+
+**Top 10 Must-Remember Points:**
+1.
+2.
+(all 10)
+
+**All Formulas:**
+(numbered list)
+
+**Key Terms (with 1-line meaning):**
+
+**Exam Tips:**
+(5 specific tips for scoring full marks)
+
+**Memory Tricks:**
+(Mnemonics or tricks to remember key facts)
+
+Keep it SHORT but COMPLETE. Ideal for 5-minute revision.`;
+  }
+
+  r=await callAI(p, type==="explain"?3000:2000);
+  cache[ck]=r;
+  body.innerHTML=fmtT(r);
+  
+  // Add read aloud button
+  const readDiv=document.createElement("div");
+  readDiv.className="tts-bar";
+  readDiv.style.marginTop="12px";
+  readDiv.innerHTML=`<button class="tts-btn" onclick="speakEl(document.getElementById('sectionBody'))">🔊 Read Aloud</button>
+  <button class="tts-btn" id="stopBtn2" onclick="stopSpeak()">⏹ Stop</button>`;
+  body.appendChild(readDiv);
 }
 
-function generateHomework(){
-  const hw=document.getElementById("homeworkSection");
-  const content=document.getElementById("homeworkContent");
+async function genHomework(){
+  const hw=document.getElementById("hwSec");
+  const body=document.getElementById("hwBody");
   hw.style.display="block";
-  content.innerHTML=`<div style="color:var(--muted);">⏳ Generating homework...</div>`;
-  const prompt=`Generate homework for chapter "${currentChapter}" of ${currentSubject} Class ${S.cls}.
-Reply in ${lang}.
+  body.innerHTML=`<div style="color:var(--mut);">⏳ Generating homework in ${lang}...</div>`;
+  const p=`Create homework for chapter "${curChap}", ${curSubj}, Class ${S.cls}.
+Reply ENTIRELY in ${lang}.
 Include:
-1. 5 Short answer questions
-2. 3 Long answer questions  
-3. 2 Application/problem questions
-4. 1 Creative/project question
-Format nicely with numbering.`;
-  callAI(prompt,1500).then(r=>{
-    content.innerHTML=formatText(r)+`<br><button class="tts-btn" onclick="speakText(document.getElementById('homeworkContent').innerText)">🔊 Read Aloud</button>`;
-    addXP(5);
-  });
+1. 5 Short answer questions (2 marks each)
+2. 3 Long answer questions (5 marks each)
+3. 2 Problem-solving questions
+4. 1 Creative/project activity
+Number all questions clearly.`;
+  const r=await callAI(p,1500);
+  body.innerHTML=fmtT(r)+`<div class="tts-bar"><button class="tts-btn" onclick="speakEl(document.getElementById('hwBody'))">🔊 Read Homework</button></div>`;
+  addXP(5);
 }
 
-function generateNotes(){
-  const content=document.getElementById("lessonContent");
-  content.innerHTML=`<div style="color:var(--muted);">⏳ Generating quick notes...</div>`;
-  const prompt=`Create quick revision notes for "${currentChapter}" of ${currentSubject} Class ${S.cls}.
+async function genNotes(){
+  const body=document.getElementById("lessBody");
+  body.innerHTML=`<div style="color:var(--mut);">⏳ Generating quick notes in ${lang}...</div>`;
+  const p=`Create compact quick revision notes for "${curChap}", ${curSubj}, Class ${S.cls}.
 Reply in ${lang}.
-Format:
-## ⚡ Quick Notes — ${currentChapter}
-• Key point 1
-• Key point 2
-(Use bullet points, bold key terms, include formulas)
-Make it compact for last-minute revision.`;
-  callAI(prompt,1200).then(r=>{ content.innerHTML=formatText(r); });
+Use bullet points, bold key terms, include formulas.
+Format for last-minute revision — concise but complete.`;
+  const r=await callAI(p,1200);
+  body.innerHTML=fmtT(r);
 }
 
-function startChapterExam(){
-  goTab("exam",document.querySelectorAll(".nav-btn")[2]);
-  document.getElementById("exSubject").value=currentSubject;
-  setTimeout(()=>startExam(currentChapter),100);
+function startChapExam(){
+  goTab("exam",document.querySelectorAll(".nb")[2]);
+  const sel=document.getElementById("exS");
+  if(sel) sel.value=curSubj;
+  setTimeout(()=>startExam(curChap),200);
 }
 
 // ===== CHAT =====
 async function sendChat(){
-  const inp=document.getElementById("chatInp");
+  const inp=document.getElementById("chatI");
   const msg=inp.value.trim();
   if(!msg) return;
   inp.value=""; inp.focus();
-  appendMsg("user",msg);
-  showTyping();
+  addMsg("u",msg);
+  showTyp();
   S.q++; saveS();
-  const prompt=`You are VIDYA VIBRANT AI — India's expert educational tutor.
+  
+  const p=`You are VIDYA VIBRANT AI — expert Indian education tutor.
 Student: ${S.name}, Class ${S.cls}, Board: ${S.board}, Target: ${S.exam}
-Language: ${lang}
+Reply ENTIRELY in ${lang} language.
 
-RULES:
-1. Reply ONLY in ${lang}
-2. Give COMPLETE detailed answer
-3. For IIT JEE/NEET: use exam-pattern approach with previous year references
-4. For concepts: explain with examples, diagrams in text, mnemonics
-5. For problems: show full step-by-step solution
-6. End with 1 practice question for the student
+Rules:
+1. Give COMPLETE answer — never cut short or truncate
+2. Structure clearly with sections
+3. For problems: show full step-by-step solution
+4. For IIT JEE/NEET: reference exam patterns and previous year questions
+5. End with one practice question
 
 Question: ${msg}`;
-  const r=await callAI(prompt,2000);
-  hideTyping();
-  appendMsg("ai",r,true);
+  
+  const r=await callAI(p,2500);
+  hideTyp();
+  addMsg("a",r);
   addXP(10); updateXP();
 }
 
-function appendMsg(role,text,tts=false){
-  const box=document.getElementById("chatBox");
+function addMsg(role,text){
+  const box=document.getElementById("chatB");
   const d=document.createElement("div");
   d.className="msg "+role;
-  if(role==="ai"){
-    d.innerHTML=`<div class="msg-header">🧠 VIDYA AI</div><div class="msg-body">${formatText(text)}</div>`;
-    if(tts) d.innerHTML+=`<button class="tts-btn" onclick="speakText(this.previousElementSibling.innerText)">🔊 Read Aloud</button>`;
+  if(role==="a"){
+    d.innerHTML=`<div class="mh">🧠 VIDYA AI</div><div class="mb">${fmtT(text)}</div>
+    <div class="tts-bar">
+      <button class="tts-btn" onclick="speakEl(this.closest('.msg').querySelector('.mb'))">🔊 Read Full</button>
+      <button class="tts-btn" onclick="speakSelectedInEl(this.closest('.msg').querySelector('.mb'))">🔊 Read Selected</button>
+    </div>`;
   } else { d.textContent=text; }
   box.appendChild(d);
   box.scrollTop=box.scrollHeight;
 }
 
 let typEl=null;
-function showTyping(){ const b=document.getElementById("chatBox"); typEl=document.createElement("div"); typEl.className="typing"; typEl.innerHTML="<span></span><span></span><span></span>"; b.appendChild(typEl); b.scrollTop=b.scrollHeight; }
-function hideTyping(){ if(typEl){typEl.remove();typEl=null;} }
+function showTyp(){const b=document.getElementById("chatB");typEl=document.createElement("div");typEl.className="typing";typEl.innerHTML="<span></span><span></span><span></span>";b.appendChild(typEl);b.scrollTop=b.scrollHeight;}
+function hideTyp(){if(typEl){typEl.remove();typEl=null;}}
 
 // ===== EXAM ENGINE =====
 async function startExam(chapter=""){
-  const subj=document.getElementById("exSubject").value;
-  const cnt=parseInt(document.getElementById("exCount").value);
-  const diff=document.getElementById("exDiff").value;
-  const type=document.getElementById("exType").value;
-  const timePerQ=parseInt(document.getElementById("exTime").value);
-  const negMark=document.getElementById("negMarkCheck").checked;
+  const subj=document.getElementById("exS").value;
+  const cnt=parseInt(document.getElementById("exN").value);
+  const diff=document.getElementById("exD").value;
+  const tpq=parseInt(document.getElementById("exT").value);
+  const neg=document.getElementById("negChk").checked;
   
-  document.getElementById("examSetup").style.display="none";
-  document.getElementById("examArea").style.display="block";
-  document.getElementById("examArea").innerHTML=`<div style="text-align:center;padding:30px;color:var(--muted);">⏳ Generating ${cnt} unique questions...<br><small>Using 20-year exam pattern database</small></div>`;
+  document.getElementById("exSetup").style.display="none";
+  const area=document.getElementById("exArea");
+  area.style.display="block";
+  area.innerHTML=`<div style="text-align:center;padding:28px;color:var(--mut);">
+    ⏳ Generating ${cnt} unique questions...<br>
+    <small>Based on 20-year ${S.exam} exam patterns</small><br>
+    <small style="color:var(--acc2);">This takes 15-20 seconds...</small>
+  </div>`;
 
-  const studentSeed=S.name+Date.now();
-  const prompt=`You are an expert Indian competitive exam question setter with 20 years experience.
+  const p=`You are an expert Indian exam question setter. Generate EXACTLY ${cnt} MCQ questions.
 
-Generate EXACTLY ${cnt} questions for:
-- Subject: ${subj}${chapter?" - Chapter: "+chapter:""}
-- Class: ${S.cls}, Board: ${S.board}
-- Target: ${S.exam}
-- Difficulty: ${diff}
-- Type: ${type}
-- Based on last 20 years IIT JEE/NEET/Board exam patterns
-- Language: ${lang}
-- Student seed for uniqueness: ${studentSeed}
+Subject: ${subj}${chapter?" — Chapter: "+chapter:""}
+Class: ${S.cls}, Board: ${S.board}, Target: ${S.exam}
+Difficulty: ${diff}
+Language: ${lang}
 
-STRICT JSON FORMAT — return ONLY valid JSON array:
-[{
-  "q": "Complete question text",
-  "type": "mcq",
-  "opts": ["Option text A","Option text B","Option text C","Option text D"],
-  "ans": 0,
-  "exp": "Detailed explanation",
-  "marks": 4,
-  "neg": -1
-}]
+IMPORTANT: Return ONLY a valid JSON array. No markdown, no explanation, just JSON:
+[{"q":"question text here","opts":["option A","option B","option C","option D"],"ans":1,"exp":"explanation here"},{"q":"...","opts":[...],"ans":2,"exp":"..."}]
 
-RULES:
-- Randomize option positions — correct answer should NOT always be same position
-- Make options realistic and tricky
-- Each question must be unique
-- ans = index of correct option (0-3)
-- Return ONLY the JSON array`;
+Rules:
+- "ans" is 0-based index of correct option
+- All 4 options must be present  
+- Make options realistic
+- RETURN ONLY THE JSON ARRAY, starting with [ and ending with ]`;
 
-  const raw=await callAI(prompt,3000);
+  const raw=await callAI(p,3000);
+  
   try{
-    const start=raw.indexOf('['), end=raw.lastIndexOf(']');
-    if(start===-1||end===-1) throw new Error("No JSON");
-    const data=JSON.parse(raw.substring(start,end+1));
-    if(!data.length) throw new Error("Empty");
+    // Clean the response aggressively
+    let clean=raw.trim();
+    // Remove markdown code blocks
+    clean=clean.replace(/```json/gi,"").replace(/```/g,"").trim();
+    // Find JSON array
+    const st=clean.indexOf('[');
+    const en=clean.lastIndexOf(']');
+    if(st===-1||en===-1||en<=st) throw new Error("No valid JSON array found");
+    clean=clean.substring(st,en+1);
     
-    // Shuffle options for each question (randomization)
-    examQuestions=data.map(q=>{
-      if(!q.opts) return q;
-      const correct=q.opts[q.ans];
-      const shuffled=[...q.opts].sort(()=>Math.random()-0.5);
-      return {...q, opts:shuffled, ans:shuffled.indexOf(correct)};
+    const data=JSON.parse(clean);
+    if(!Array.isArray(data)||data.length===0) throw new Error("Empty array");
+    
+    // Shuffle questions order
+    const shuffled=[...data].sort(()=>Math.random()-0.5);
+    
+    // Shuffle options for each question
+    exQs=shuffled.map(q=>{
+      if(!q.opts||q.opts.length<2) return q;
+      const correct=q.opts[q.ans||0];
+      const opts=[...q.opts].sort(()=>Math.random()-0.5);
+      return {...q,opts,ans:opts.indexOf(correct)};
     });
     
-    examAnswers=new Array(examQuestions.length).fill(-1);
-    examTimeLeft=cnt*timePerQ;
+    exAs=new Array(exQs.length).fill(-1);
+    exTime=cnt*tpq;
     
-    renderExam(negMark);
+    renderExam(neg);
     startTimer();
     S.tests++; addXP(20); saveS();
     
   }catch(e){
-    document.getElementById("examArea").innerHTML=`
-      <div class="card"><div class="msg-header">🧠 AI Response</div>
-      <div style="line-height:1.8;">${formatText(raw)}</div></div>`;
+    area.innerHTML=`
+      <button class="back-btn" onclick="document.getElementById('exSetup').style.display='block';document.getElementById('exArea').style.display='none';">← Back to Setup</button>
+      <div class="card">
+        <div style="color:var(--acc2);font-weight:700;margin-bottom:10px;">⚠️ Could not parse questions. AI Response:</div>
+        <div style="line-height:1.8;font-size:0.88rem;">${fmtT(raw)}</div>
+      </div>`;
   }
 }
 
-function renderExam(negMark){
-  const area=document.getElementById("examArea");
+function renderExam(neg){
+  const area=document.getElementById("exArea");
   area.innerHTML=`
-    <div class="exam-header">
+    <div class="eh">
       <div>
-        <div style="font-size:0.85rem;color:rgba(255,255,255,0.7);">📝 ${examQuestions.length} Questions ${negMark?'• Negative Marking':''}</div>
-        <div style="font-size:0.95rem;color:#fff;margin-top:2px;">${S.name} • Class ${S.cls}</div>
+        <div style="font-size:0.8rem;color:rgba(255,255,255,0.7);">${exQs.length} Questions${neg?" • -0.25 Negative":""}</div>
+        <div style="font-size:0.88rem;color:#fff;margin-top:2px;">${S.name} • ${document.getElementById("exS").value}</div>
       </div>
-      <div>
-        <div style="font-size:0.75rem;color:rgba(255,255,255,0.7);text-align:center;">Time Left</div>
-        <div class="timer-display" id="timerDisplay">--:--</div>
+      <div style="text-align:center;">
+        <div style="font-size:0.7rem;color:rgba(255,255,255,0.7);">Time Left</div>
+        <div class="timer" id="timerD">--:--</div>
       </div>
     </div>
-    <div id="questionsContainer"></div>
-    <button class="btn btn-primary" style="max-width:200px;margin-top:8px;" onclick="submitExam(${negMark})">✅ Submit Exam</button>`;
+    <div id="qCont"></div>
+    <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;">
+      <button class="btn btn-p" style="max-width:180px;" onclick="submitExam(${neg})">✅ Submit</button>
+      <button class="back-btn" onclick="if(confirm('Exit exam?')){clearInterval(exTimer);document.getElementById('exSetup').style.display='block';document.getElementById('exArea').style.display='none';}">✕ Exit</button>
+    </div>`;
   
-  const container=document.getElementById("questionsContainer");
-  examQuestions.forEach((q,i)=>{
-    const div=document.createElement("div");
-    div.className="exam-q";
-    div.id=`eq_${i}`;
-    div.innerHTML=`
-      <div class="q-text">Q${i+1}. ${q.q} <span style="color:var(--gold);font-size:0.78rem;">[${q.marks||4} marks]</span></div>
-      ${q.opts.map((o,j)=>`<div class="exam-option" id="opt_${i}_${j}" onclick="selectOpt(${i},${j})">${String.fromCharCode(65+j)}. ${o}</div>`).join("")}
-      <button class="tts-btn" onclick="speakText('${q.q.replace(/'/g,"\\'")}')">🔊 Read Question</button>`;
-    container.appendChild(div);
+  const qc=document.getElementById("qCont");
+  exQs.forEach((q,i)=>{
+    const d=document.createElement("div");
+    d.className="eq"; d.id=`eq${i}`;
+    d.innerHTML=`<div class="qt">Q${i+1}. ${q.q}</div>
+    ${(q.opts||[]).map((o,j)=>`<div class="eo" id="eo${i}_${j}" onclick="selOpt(${i},${j})">${String.fromCharCode(65+j)}. ${o}</div>`).join("")}
+    <div class="tts-bar"><button class="tts-btn" onclick="speak('${(q.q||"").substring(0,200).replace(/'/g,"")}')"">🔊 Read Question</button></div>`;
+    qc.appendChild(d);
   });
 }
 
-function selectOpt(qi,oi){
-  if(examAnswers[qi]!==-1) return; // Already answered
-  examAnswers[qi]=oi;
-  document.querySelectorAll(`[id^="opt_${qi}_"]`).forEach(el=>el.classList.remove("selected"));
-  document.getElementById(`opt_${qi}_${oi}`).classList.add("selected");
+function selOpt(qi,oi){
+  if(exAs[qi]!==-1) return;
+  exAs[qi]=oi;
+  document.querySelectorAll(`[id^="eo${qi}_"]`).forEach(e=>e.classList.remove("sel"));
+  const el=document.getElementById(`eo${qi}_${oi}`);
+  if(el) el.classList.add("sel");
 }
 
 function startTimer(){
-  clearInterval(examTimer);
-  examTimer=setInterval(()=>{
-    examTimeLeft--;
-    const m=Math.floor(examTimeLeft/60),s=examTimeLeft%60;
-    const el=document.getElementById("timerDisplay");
-    if(el) el.textContent=`${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
-    if(examTimeLeft<=0){ clearInterval(examTimer); submitExam(document.getElementById("negMarkCheck")?.checked); }
+  clearInterval(exTimer);
+  exTimer=setInterval(()=>{
+    exTime--;
+    const m=Math.floor(exTime/60),s=exTime%60;
+    const el=document.getElementById("timerD");
+    if(el) el.textContent=`${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+    if(exTime<=0){clearInterval(exTimer);submitExam();}
   },1000);
 }
 
-function submitExam(negMark=true){
-  clearInterval(examTimer);
-  let score=0, correct=0, wrong=0, unattempted=0;
-  
-  examQuestions.forEach((q,i)=>{
-    const ans=examAnswers[i];
-    if(ans===-1){ unattempted++; return; }
-    if(ans===q.ans){ score+=(q.marks||4); correct++; S.correct++; }
-    else{ if(negMark) score+=(q.neg||(-1)); wrong++; }
-    // Show correct/wrong
-    document.querySelectorAll(`[id^="opt_${i}_"]`).forEach((el,j)=>{
+function submitExam(neg=true){
+  clearInterval(exTimer);
+  let score=0,corr=0,wrng=0,skip=0;
+  exQs.forEach((q,i)=>{
+    const a=exAs[i];
+    if(a===-1){skip++;return;}
+    if(a===q.ans){score+=4;corr++;S.correct++;}
+    else{if(neg)score-=1;wrng++;}
+    document.querySelectorAll(`[id^="eo${i}_"]`).forEach((el,j)=>{
       el.style.pointerEvents="none";
-      if(j===q.ans) el.classList.add("correct");
-      else if(j===ans&&ans!==q.ans) el.classList.add("wrong");
+      if(j===q.ans) el.classList.add("ok");
+      else if(j===a&&a!==q.ans) el.classList.add("no");
     });
-    // Show explanation
     if(q.exp){
-      const expDiv=document.createElement("div");
-      expDiv.style.cssText="margin-top:10px;padding:12px;background:rgba(99,102,241,0.1);border-radius:10px;font-size:0.85rem;color:var(--muted);line-height:1.6;";
-      expDiv.innerHTML=`💡 <strong>Explanation:</strong> ${q.exp}`;
-      document.getElementById(`eq_${i}`)?.appendChild(expDiv);
+      const ed=document.createElement("div");
+      ed.className="exp-box";
+      ed.innerHTML=`💡 <strong>Explanation:</strong> ${q.exp}`;
+      document.getElementById(`eq${i}`)?.appendChild(ed);
     }
   });
-  
-  const total=examQuestions.reduce((s,q)=>s+(q.marks||4),0);
+  const total=exQs.length*4;
   const pct=Math.round((Math.max(0,score)/total)*100);
   const grade=pct>=90?"A+":(pct>=75?"A":(pct>=60?"B":(pct>=45?"C":"D")));
   
-  const resultDiv=document.createElement("div");
-  resultDiv.className="result-box";
-  resultDiv.innerHTML=`
-    <div style="font-size:1.1rem;color:var(--muted);margin-bottom:8px;">🎉 Exam Complete!</div>
-    <div class="result-score">${Math.max(0,score)}/${total}</div>
-    <div style="font-size:1.2rem;color:var(--gold);margin:8px 0;">Grade: ${grade} • ${pct}%</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0;font-size:0.85rem;">
-      <div style="background:rgba(16,185,129,0.2);border-radius:10px;padding:10px;"><div style="font-size:1.5rem;font-weight:900;color:var(--success);">${correct}</div>Correct</div>
-      <div style="background:rgba(239,68,68,0.2);border-radius:10px;padding:10px;"><div style="font-size:1.5rem;font-weight:900;color:var(--danger);">${wrong}</div>Wrong</div>
-      <div style="background:rgba(99,102,241,0.2);border-radius:10px;padding:10px;"><div style="font-size:1.5rem;font-weight:900;color:var(--accent);">${unattempted}</div>Skipped</div>
-    </div>
-    <button class="btn btn-primary" style="max-width:200px;" onclick="document.getElementById('examSetup').style.display='block';document.getElementById('examArea').style.display='none';">🔄 New Exam</button>`;
-  
-  document.getElementById("examArea").prepend(resultDiv);
-  addXP(correct*15); saveS(); updateXP();
+  const rb=document.createElement("div");
+  rb.className="res-box";
+  rb.innerHTML=`<div style="font-size:1rem;color:var(--mut);margin-bottom:6px;">🎉 Exam Complete!</div>
+  <div class="res-score">${Math.max(0,score)}/${total}</div>
+  <div style="color:var(--gold);font-size:1.1rem;margin:8px 0;">Grade: ${grade} (${pct}%)</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0;font-size:0.82rem;">
+    <div style="background:rgba(16,185,129,0.2);border-radius:9px;padding:10px;"><div style="font-size:1.4rem;font-weight:900;color:var(--ok);">${corr}</div>Correct</div>
+    <div style="background:rgba(239,68,68,0.2);border-radius:9px;padding:10px;"><div style="font-size:1.4rem;font-weight:900;color:var(--err);">${wrng}</div>Wrong</div>
+    <div style="background:rgba(99,102,241,0.2);border-radius:9px;padding:10px;"><div style="font-size:1.4rem;font-weight:900;color:var(--acc);">${skip}</div>Skipped</div>
+  </div>
+  <button class="btn btn-p" style="max-width:180px;" onclick="document.getElementById('exSetup').style.display='block';document.getElementById('exArea').style.display='none';">🔄 New Exam</button>`;
+  document.getElementById("exArea").prepend(rb);
+  addXP(corr*15); saveS(); updateXP();
 }
 
 // ===== SCHEDULE =====
-async function generateSchedule(){
-  const content=document.getElementById("scheduleContent");
-  content.innerHTML=`<div class="card"><div style="color:var(--muted);">⏳ Generating your personalized annual study schedule...</div></div>`;
-  
-  const today=new Date().toLocaleDateString('en-IN',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-  const prompt=`Create a structured study schedule for:
-Student: ${S.name}, Class ${S.cls}, Board: ${S.board}, Target: ${S.exam}
-Today's Date: ${today}
-Language: ${lang}
+async function genSched(){
+  const c=document.getElementById("schedC");
+  c.innerHTML=`<div class="card"><div style="color:var(--mut);">⏳ Generating schedule in ${lang}...</div></div>`;
+  const today=new Date().toLocaleDateString("en-IN",{weekday:"long",year:"numeric",month:"long",day:"numeric"});
+  const p=`Create a detailed personalized study schedule in ${lang}.
+Student: Class ${S.cls}, Board: ${S.board}, Target: ${S.exam}
+Today: ${today}
 
-Create a realistic WEEKLY schedule showing:
-1. Today's lesson plan (what to study today)
-2. This week's plan (Day 1-7)
-3. Chapter completion timeline
-4. When to take tests
+Include:
+1. Today's Study Plan (what to study today, which chapter)
+2. This Week's Schedule (Day 1-7 with specific chapters)
+3. Monthly Overview
+4. After each chapter: when to take test
 5. Revision schedule
+6. Time allocation per subject
 
-Format as a clear, actionable schedule.
-Include specific chapter names from ${S.board} Class ${S.cls} syllabus.`;
-
-  const r=await callAI(prompt,2000);
-  content.innerHTML=`<div class="card"><h3>📅 Your Personalized Study Schedule</h3><div style="line-height:1.9;">${formatText(r)}</div>
-  <button class="tts-btn" style="margin-top:10px;" onclick="speakText(this.previousElementSibling.innerText)">🔊 Read Schedule</button></div>`;
+Make it realistic, specific, and actionable.`;
+  const r=await callAI(p,2000);
+  c.innerHTML=`<div class="card"><h3>📅 Your Study Schedule</h3><div style="line-height:1.9;">${fmtT(r)}</div>
+  <div class="tts-bar"><button class="tts-btn" onclick="speakEl(this.closest('.card'))">🔊 Read Schedule</button></div></div>`;
 }
 
 // ===== PROGRESS =====
-function updateProgressTab(){
+function updProgTab(){
   updateXP();
-  const p=document.getElementById("profileContent");
-  p.innerHTML=`🎓 <strong>Name:</strong> ${S.name}<br>
-  📚 <strong>Class:</strong> ${S.cls}<br>
-  📋 <strong>Board:</strong> ${S.board}<br>
-  🏆 <strong>Target:</strong> ${S.exam}<br>
-  🌐 <strong>Language:</strong> ${S.lang}<br>
-  ⭐ <strong>XP:</strong> ${S.xp}<br>
-  🔥 <strong>Streak:</strong> ${S.streak} days`;
+  document.getElementById("profC").innerHTML=
+    `🎓 <strong>Name:</strong> ${S.name}<br>
+     📚 <strong>Class:</strong> ${S.cls} • ${S.board}<br>
+     🏆 <strong>Target:</strong> ${S.exam}<br>
+     🌐 <strong>Language:</strong> ${S.lang}<br>
+     ⭐ <strong>XP Earned:</strong> ${S.xp}<br>
+     🔥 <strong>Study Streak:</strong> ${S.streak} days`;
 }
 
 async function getAnalysis(){
-  const content=document.getElementById("analysisContent");
-  content.innerHTML=`<div style="color:var(--muted);">⏳ Analyzing your performance...</div>`;
-  const prompt=`Analyze this student's performance and give advice in ${lang}:
-- Name: ${S.name}, Class ${S.cls}, Target: ${S.exam}
-- XP: ${S.xp}, Level: ${S.level}
-- Questions asked: ${S.q}
-- Exams taken: ${S.tests}
-- Correct answers: ${S.correct}
-- Study streak: ${S.streak} days
-
-Give:
-1. Performance assessment
-2. Strengths identified
-3. Areas needing improvement
-4. Specific study recommendations
-5. Target exam readiness (%)
-6. Motivational message`;
-  const r=await callAI(prompt,1500);
-  content.innerHTML=`<div style="line-height:1.9;">${formatText(r)}</div>`;
+  const c=document.getElementById("analC");
+  c.innerHTML=`<div style="color:var(--mut);">⏳ Analyzing in ${lang}...</div>`;
+  const p=`Analyze student performance and give advice in ${lang}:
+Name: ${S.name}, Class ${S.cls}, Target: ${S.exam}
+XP: ${S.xp}, Level: ${S.level}, Questions: ${S.q}
+Exams: ${S.tests}, Correct: ${S.correct}, Streak: ${S.streak} days
+Give: assessment, strengths, improvement areas, recommendations, readiness %, motivation.`;
+  const r=await callAI(p,1500);
+  c.innerHTML=`<div style="line-height:1.9;margin-top:10px;">${fmtT(r)}</div>`;
 }
 
 // ===== JEE/NEET =====
-async function jeeNeetTopic(subj,exam){
-  const content=document.getElementById("jeeContent");
-  const inner=document.getElementById("jeeContentInner");
-  content.style.display="block";
-  inner.innerHTML=`<div style="color:var(--muted);">⏳ Loading ${subj} for ${exam}...</div>`;
-  
-  const prompt=`You are an IIT JEE/NEET expert with 20 years experience.
-For ${subj} in ${exam} context, provide in ${lang}:
-
-## 🏆 ${subj} — ${exam} Master Guide
-
-1. **Most Important Topics** (based on last 20 years frequency)
-2. **High Weightage Chapters** (with % weightage)
-3. **Previous Year Pattern Analysis** (2004-2024 trends)
-4. **Must-Know Formulas & Concepts**
-5. **Common Tricky Questions Pattern**
-6. **Preparation Strategy** for Class ${S.cls} student
-7. **Expected Questions** this year
-
-Be specific, data-driven, exam-focused.`;
-
-  const r=await callAI(prompt,2000);
-  inner.innerHTML=`<h3 style="color:var(--accent2);margin-bottom:14px;">🏆 ${subj} — ${exam}</h3>${formatText(r)}
-  <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
-    <button class="btn-sm btn-accent" onclick="generateJEETest('${subj}','${exam}')">📝 Practice Test</button>
-    <button class="tts-btn" style="margin-top:0;" onclick="speakText(document.getElementById('jeeContentInner').innerText)">🔊 Read Aloud</button>
+async function jeeT(subj,exam){
+  document.getElementById("jeeC").style.display="block";
+  const inner=document.getElementById("jeeCi");
+  inner.innerHTML=`<div style="color:var(--mut);">⏳ Loading ${subj} ${exam} guide...</div>`;
+  const p=`Expert IIT JEE/NEET guide for ${subj} in ${exam} context. Reply in ${lang}.
+Include: Most important topics (by last 20 year frequency), high weightage chapters with %, previous year pattern analysis 2004-2024, must-know formulas, common question patterns, preparation strategy for Class ${S.cls} student.
+Be specific and exam-focused.`;
+  const r=await callAI(p,2000);
+  inner.innerHTML=`<h3 style="color:var(--acc2);margin-bottom:12px;">🏆 ${subj} — ${exam}</h3>${fmtT(r)}
+  <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;">
+    <button class="btn-sm" style="background:var(--acc);color:#fff;" onclick="jeeExam('${subj}','${exam}')">📝 Practice Test</button>
+    <button class="tts-btn" onclick="speakEl(document.getElementById('jeeCi'))">🔊 Read Aloud</button>
   </div>`;
-  content.scrollIntoView({behavior:"smooth"});
+  document.getElementById("jeeC").scrollIntoView({behavior:"smooth"});
 }
 
-async function generateJEETest(subj,exam){
-  goTab("exam",document.querySelectorAll(".nav-btn")[2]);
-  document.getElementById("exSubject").value=subj;
-  document.getElementById("exDiff").value=exam+" Level";
-  document.getElementById("exCount").value="10";
-  document.getElementById("exType").value=exam.includes("JEE")?"IIT JEE Pattern":"NEET Pattern";
-  setTimeout(startExam,100);
+function jeeExam(subj,exam){
+  goTab("exam",document.querySelectorAll(".nb")[2]);
+  const sel=document.getElementById("exS");
+  if(sel) sel.value=subj;
+  document.getElementById("exD").value=exam.includes("JEE")?"IIT JEE Level":"NEET Level";
+  document.getElementById("exN").value="10";
+  setTimeout(startExam,200);
 }
 
-// ===== TTS =====
-function speakText(text){
-  if(!text) return;
-  window.speechSynthesis.cancel();
-  ttsUtterance=new SpeechSynthesisUtterance(text.substring(0,2000));
-  ttsUtterance.lang=getLangCode(lang);
-  ttsUtterance.rate=0.9;
-  window.speechSynthesis.speak(ttsUtterance);
+// ===== TTS — FEMALE VOICE =====
+let voices=[];
+window.speechSynthesis.onvoiceschanged=()=>{ voices=window.speechSynthesis.getVoices(); };
+
+function getBestVoice(langCode){
+  if(!voices.length) voices=window.speechSynthesis.getVoices();
+  // Prefer female Google voice
+  const female=voices.find(v=>v.lang.startsWith(langCode)&&(v.name.toLowerCase().includes("female")||v.name.toLowerCase().includes("woman")||v.name.includes("Veena")||v.name.includes("Heera")||v.name.includes("Zira")||v.name.includes("Susan")||v.name.includes("Google")));
+  if(female) return female;
+  // Any voice matching language
+  const any=voices.find(v=>v.lang.startsWith(langCode));
+  if(any) return any;
+  // Default English female
+  return voices.find(v=>v.name.toLowerCase().includes("female")||v.name.includes("Zira")||v.name.includes("Susan"))||null;
 }
 
 function getLangCode(l){
-  const codes={"English":"en-IN","Malayalam":"ml-IN","Hindi":"hi-IN","Tamil":"ta-IN","Telugu":"te-IN","Kannada":"kn-IN","Bengali":"bn-IN","Marathi":"mr-IN"};
-  return codes[l]||"en-IN";
+  const m={"English":"en","Malayalam":"ml","Hindi":"hi","Tamil":"ta","Telugu":"te","Kannada":"kn","Bengali":"bn","Marathi":"mr"};
+  return m[l]||"en";
+}
+
+function speak(text){
+  if(!text||!text.trim()) return;
+  window.speechSynthesis.cancel();
+  const utt=new SpeechSynthesisUtterance(text.substring(0,3000));
+  const v=getBestVoice(getLangCode(lang));
+  if(v) utt.voice=v;
+  utt.lang=getLangCode(lang)+"-IN";
+  utt.rate=0.88;
+  utt.pitch=1.1;
+  window.speechSynthesis.speak(utt);
+  document.getElementById("stopBtn").style.display="inline-flex";
+  utt.onend=()=>document.getElementById("stopBtn").style.display="none";
+}
+
+function speakEl(el){
+  if(el) speak(el.innerText||el.textContent);
+}
+
+function speakFull(){
+  speakEl(document.getElementById("lessBody"));
+}
+
+function stopSpeak(){
+  window.speechSynthesis.cancel();
+  document.getElementById("stopBtn").style.display="none";
+}
+
+// Cursor-based selected text reading
+function onTextSelect(){
+  const sel=window.getSelection();
+  if(sel&&sel.toString().trim().length>5){
+    selectedText=sel.toString().trim();
+    document.getElementById("selectedReadBar").style.display="block";
+  } else {
+    document.getElementById("selectedReadBar").style.display="none";
+  }
+}
+
+function speakSelected(){
+  if(selectedText) speak(selectedText);
+}
+
+function speakSelectedInEl(el){
+  const sel=window.getSelection();
+  if(sel&&sel.toString().trim().length>3){speak(sel.toString().trim());}
+  else if(el){speak((el.innerText||"").substring(0,1000));}
 }
 
 // ===== VOICE INPUT =====
-function startVoiceInput(){
-  if(!('webkitSpeechRecognition' in window||'SpeechRecognition' in window)){alert("Voice input not supported in this browser. Use Chrome.");return;}
+function voiceIn(){
+  if(!('webkitSpeechRecognition' in window||'SpeechRecognition' in window)){
+    alert("Voice input works best in Chrome browser!");return;
+  }
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
   const r=new SR();
-  r.lang=getLangCode(lang);
-  r.onresult=e=>{ document.getElementById("chatInp").value=e.results[0][0].transcript; sendChat(); };
+  r.lang=getLangCode(lang)+"-IN";
+  r.onresult=e=>{document.getElementById("chatI").value=e.results[0][0].transcript;sendChat();};
+  r.onerror=()=>alert("Voice input error. Please try again.");
   r.start();
 }
 
 // ===== FORMAT =====
-function formatText(t){
+function fmtT(t){
   if(!t) return "";
   return t
+    .replace(/```json[\s\S]*?```/g,"")
+    .replace(/```[\s\S]*?```/g,"")
     .replace(/\*\*(.*?)\*\*/g,"<strong>$1</strong>")
     .replace(/\*(.*?)\*/g,"<em>$1</em>")
-    .replace(/#{3} (.*?)(\n|$)/g,"<div style='font-size:1rem;font-weight:700;color:var(--accent2);margin:12px 0 6px;'>$1</div>")
-    .replace(/#{2} (.*?)(\n|$)/g,"<div style='font-size:1.1rem;font-weight:800;color:var(--accent2);margin:14px 0 6px;'>$1</div>")
-    .replace(/#{1} (.*?)(\n|$)/g,"<div style='font-size:1.2rem;font-weight:900;color:var(--gold);margin:16px 0 8px;'>$1</div>")
+    .replace(/^### (.*?)$/gm,"<div style='font-size:1rem;font-weight:700;color:var(--acc2);margin:10px 0 5px;'>$1</div>")
+    .replace(/^## (.*?)$/gm,"<div style='font-size:1.05rem;font-weight:800;color:var(--acc2);margin:12px 0 5px;'>$1</div>")
+    .replace(/^# (.*?)$/gm,"<div style='font-size:1.1rem;font-weight:900;color:var(--gold);margin:14px 0 6px;'>$1</div>")
+    .replace(/^• (.*?)$/gm,"<div style='padding-left:14px;margin:3px 0;'>• $1</div>")
+    .replace(/^\d+\. (.*?)$/gm,"<div style='padding-left:14px;margin:4px 0;'>$&</div>")
     .replace(/\n\n/g,"<br><br>")
     .replace(/\n/g,"<br>");
 }
 
 // ===== AI ENGINE =====
-async function callAI(prompt, maxTokens=1500){
-  // Try direct API
+async function callAI(prompt,maxT=1500){
   if(apiKey){
     try{
       const r=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,{
         method:"POST",
         headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({contents:[{parts:[{text:prompt}]}],generationConfig:{temperature:0.7,maxOutputTokens:maxTokens}})
+        body:JSON.stringify({contents:[{parts:[{text:prompt}]}],generationConfig:{temperature:0.7,maxOutputTokens:maxT}})
       });
       const d=await r.json();
       if(d.candidates?.[0]?.content) return d.candidates[0].content.parts[0].text;
       if(d.error) throw new Error(d.error.message);
-    }catch(e){ console.log("Direct failed:",e.message); }
+    }catch(e){console.log("Direct failed:",e.message);}
   }
-  // Fallback: Apps Script
-  try{ return await callScript(prompt); }
-  catch(e){ return "⚠️ AI connection error. Please check your API key in Settings (⚙️) and try again."; }
+  try{return await callScript(prompt);}
+  catch(e){return "⚠️ AI connection error. Please update your API key in Settings (⚙️).";}
 }
 
 async function callScript(prompt){
   return new Promise((res,rej)=>{
     const cb="vv_"+Date.now();
-    const t=setTimeout(()=>{ delete window[cb]; rej("Timeout"); },25000);
-    window[cb]=(d)=>{ clearTimeout(t); delete window[cb]; res(d?.reply||"No response"); };
+    const t=setTimeout(()=>{delete window[cb];rej("Timeout");},28000);
+    window[cb]=(d)=>{clearTimeout(t);delete window[cb];res(d?.reply||"No response");};
     const s=document.createElement("script");
-    s.src=SCRIPT_URL+"?prompt="+encodeURIComponent(prompt)+"&callback="+cb;
-    s.onerror=()=>{ clearTimeout(t); delete window[cb]; rej("Error"); };
+    s.src=SURL+"?prompt="+encodeURIComponent(prompt)+"&callback="+cb;
+    s.onerror=()=>{clearTimeout(t);delete window[cb];rej("Error");};
     document.head.appendChild(s);
   });
 }
